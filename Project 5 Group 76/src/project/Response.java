@@ -21,8 +21,8 @@ public class Response {
     private HobbyEnum hobby;
     private MajorEnum major;
     private RegionEnum region;
-    private boolean heard;
-    private boolean liked;
+    private String heard;
+    private String liked;
 
 
     /**
@@ -32,8 +32,8 @@ public class Response {
         HobbyEnum h,
         MajorEnum m,
         RegionEnum r,
-        boolean hd,
-        boolean ld) {
+        String hd,
+        String ld) {
         hobby = h;
         major = m;
         region = r;
@@ -77,7 +77,7 @@ public class Response {
      * 
      * @return true if heard and false if not
      */
-    public boolean getHeard() {
+    public String getHeard() {
         return heard;
     }
     
@@ -87,7 +87,7 @@ public class Response {
      * 
      * @return true if liked and false if not
      */
-    public boolean getLiked() {
+    public String getLiked() {
         return liked;
     }
 }

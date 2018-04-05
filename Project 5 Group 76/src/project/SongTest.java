@@ -36,13 +36,13 @@ public class SongTest extends TestCase {
     public void setUp() {
         song = new Song("1985", 2004, "Smash Mouth", "Rock");
         song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
-            RegionEnum.NORTHEAST, true, true));
+            RegionEnum.NORTHEAST, "yes", "yes"));
         song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
-            RegionEnum.NORTHEAST, true, true));
+            RegionEnum.NORTHEAST, "yes", "yes"));
         song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
-            RegionEnum.NORTHEAST, true, true));
+            RegionEnum.NORTHEAST, "yes", "yes"));
         song.addResponse(new Response(HobbyEnum.MUSIC, MajorEnum.MATH_OR_CMDA,
-            RegionEnum.OUTSIDE, true, true));
+            RegionEnum.OUTSIDE, "yes", "yes"));
     }
 
 
@@ -50,8 +50,8 @@ public class SongTest extends TestCase {
      * This tests getting the heard for hobby
      */
     public void testGetHeardHobby() {
-        assertEquals(3, song.getHeardHobby(HobbyEnum.ART));
-        assertEquals(1, song.getHeardHobby(HobbyEnum.MUSIC));
+        assertEquals(1, song.getHeardHobby(HobbyEnum.ART), 0.001);
+        assertEquals(1, song.getHeardHobby(HobbyEnum.MUSIC), 0.001);
     }
 
 
@@ -59,8 +59,8 @@ public class SongTest extends TestCase {
      * This tests getting the heard for major
      */
     public void testGetHeardMajor() {
-        assertEquals(3, song.getHeardMajor(MajorEnum.CS));
-        assertEquals(1, song.getHeardMajor(MajorEnum.MATH_OR_CMDA));
+        assertEquals(1, song.getHeardMajor(MajorEnum.CS), 0.001);
+        assertEquals(1, song.getHeardMajor(MajorEnum.MATH_OR_CMDA), 0.001);
     }
 
 
@@ -68,8 +68,8 @@ public class SongTest extends TestCase {
      * This tests getting the heard for region
      */
     public void testGetHeardRegion() {
-        assertEquals(3, song.getHeardRegion(RegionEnum.NORTHEAST));
-        assertEquals(1, song.getHeardRegion(RegionEnum.OUTSIDE));
+        assertEquals(1, song.getHeardRegion(RegionEnum.NORTHEAST), 0.001);
+        assertEquals(1, song.getHeardRegion(RegionEnum.OUTSIDE), 0.001);
     }
 
 
@@ -77,8 +77,8 @@ public class SongTest extends TestCase {
      * This tests getting the heard for hobby
      */
     public void testGetLikedHobby() {
-        assertEquals(3, song.getLikedHobby(HobbyEnum.ART));
-        assertEquals(1, song.getLikedHobby(HobbyEnum.MUSIC));
+        assertEquals(1, song.getLikedHobby(HobbyEnum.ART), 0.001);
+        assertEquals(1, song.getLikedHobby(HobbyEnum.MUSIC), 0.001);
     }
 
 
@@ -86,8 +86,8 @@ public class SongTest extends TestCase {
      * This tests getting the heard for major
      */
     public void testGetLikedMajor() {
-        assertEquals(3, song.getLikedMajor(MajorEnum.CS));
-        assertEquals(1, song.getLikedMajor(MajorEnum.MATH_OR_CMDA));
+        assertEquals(1, song.getLikedMajor(MajorEnum.CS), 0.001);
+        assertEquals(1, song.getLikedMajor(MajorEnum.MATH_OR_CMDA), 0.001);
     }
 
 
@@ -95,8 +95,19 @@ public class SongTest extends TestCase {
      * This tests getting the heard for region
      */
     public void testGetLikedRegion() {
-        assertEquals(3, song.getLikedRegion(RegionEnum.NORTHEAST));
-        assertEquals(1, song.getLikedRegion(RegionEnum.OUTSIDE));
+        assertEquals(1, song.getLikedRegion(RegionEnum.NORTHEAST), 0.001);
+        assertEquals(1, song.getLikedRegion(RegionEnum.OUTSIDE), 0.001);
     }
 
+    
+    /**
+     * This tests getting the heard for region
+     */
+    public void testOther() {
+        song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
+            RegionEnum.NORTHEAST, "no", "no"));
+        
+        assertEquals(0.75, song.getHeardRegion(RegionEnum.NORTHEAST), 0.001);
+        assertEquals(0.75, song.getLikedRegion(RegionEnum.NORTHEAST), 0.001);
+    }
 }

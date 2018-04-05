@@ -19,5 +19,5 @@ package project;
  *
  */
 public enum HobbyEnum {
-    READ, ART, SPORTS, MUSIC
+    READ, ART, SPORTS, MUSIC //check Daniel
 }
