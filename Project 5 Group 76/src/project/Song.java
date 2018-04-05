@@ -59,8 +59,8 @@ public class Song {
     public String getName() {
         return name;
     }
-    
-    
+
+
     /**
      * This gets the year of the song.
      * 
@@ -69,8 +69,8 @@ public class Song {
     public int getYear() {
         return year;
     }
-    
-    
+
+
     /**
      * This gets the artist of the song.
      * 
@@ -79,8 +79,8 @@ public class Song {
     public String getArtist() {
         return artist;
     }
-    
-    
+
+
     /**
      * This gets the genre of the song.
      * 
@@ -162,7 +162,7 @@ public class Song {
         return count;
     }
 
-    
+
     /**
      * This returns the number of responses, whose hobby is 'hobby', answered
      * yes to liked.
