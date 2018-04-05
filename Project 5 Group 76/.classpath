@@ -6,5 +6,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CarranoDataStructuresLib"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CS2114-Support"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GraphWindowLib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
