@@ -20,6 +20,7 @@ package project;
  */
 public class ProjectRunner {
 
+    // jmgreen4 Testing Eclipse integration with GIT
     /**
      * @param args
      */
