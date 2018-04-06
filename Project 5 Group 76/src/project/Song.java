@@ -111,20 +111,16 @@ public class Song {
      *            The hobby to check for
      * @return how many reponses said yes to hearing it
      */
-    public float getHeardHobby(HobbyEnum hobby) {
+    public int getHeardHobby(HobbyEnum hobby) {
         int yesCount = 0;
-        int noCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getHobby().equals(hobby)) {
                 if (responses[i].getHeard().equals("yes")) {
                     yesCount++;
                 }
-                else if (responses[i].getHeard().equals("no")) {
-                    noCount++;
-                }
             }
         }
-        return ((float)yesCount / (float)(noCount + yesCount));
+        return yesCount;
     }
 
 
@@ -136,20 +132,16 @@ public class Song {
      *            The major to check for
      * @return how many reponses said yes to hearing it
      */
-    public float getHeardMajor(MajorEnum major) {
+    public int getHeardMajor(MajorEnum major) {
         int yesCount = 0;
-        int noCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getMajor().equals(major)) {
                 if (responses[i].getHeard().equals("yes")) {
                     yesCount++;
                 }
-                else if (responses[i].getHeard().equals("no")) {
-                    noCount++;
-                }
             }
         }
-        return ((float)yesCount / (float)(noCount + yesCount));
+        return yesCount;
     }
 
 
@@ -161,20 +153,16 @@ public class Song {
      *            The region to check for
      * @return how many reponses said yes to hearing it
      */
-    public float getHeardRegion(RegionEnum region) {
+    public int getHeardRegion(RegionEnum region) {
         int yesCount = 0;
-        int noCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getRegion().equals(region)) {
                 if (responses[i].getHeard().equals("yes")) {
                     yesCount++;
                 }
-                else if (responses[i].getHeard().equals("no")) {
-                    noCount++;
-                }
             }
         }
-        return ((float)yesCount / (float)(noCount + yesCount));
+        return yesCount;
     }
 
 
@@ -186,20 +174,16 @@ public class Song {
      *            The hobby to check for
      * @return how many reponses said yes to liking it
      */
-    public float getLikedHobby(HobbyEnum hobby) {
+    public int getLikedHobby(HobbyEnum hobby) {
         int yesCount = 0;
-        int noCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getHobby().equals(hobby)) {
                 if (responses[i].getLiked().equals("yes")) {
                     yesCount++;
                 }
-                else if (responses[i].getLiked().equals("no")) {
-                    noCount++;
-                }
             }
         }
-        return ((float)yesCount / (float)(noCount + yesCount));
+        return yesCount;
     }
 
 
@@ -211,20 +195,16 @@ public class Song {
      *            The major to check for
      * @return how many reponses said yes to liking it
      */
-    public float getLikedMajor(MajorEnum major) {
+    public int getLikedMajor(MajorEnum major) {
         int yesCount = 0;
-        int noCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getMajor().equals(major)) {
                 if (responses[i].getLiked().equals("yes")) {
                     yesCount++;
                 }
-                else if (responses[i].getLiked().equals("no")) {
-                    noCount++;
-                }
             }
         }
-        return ((float)yesCount / (float)(noCount + yesCount));
+        return yesCount;
     }
 
 
@@ -236,19 +216,15 @@ public class Song {
      *            The region to check for
      * @return how many reponses said yes to liking it
      */
-    public float getLikedRegion(RegionEnum region) {
+    public int getLikedRegion(RegionEnum region) {
         int yesCount = 0;
-        int noCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getRegion().equals(region)) {
                 if (responses[i].getLiked().equals("yes")) {
                     yesCount++;
                 }
-                else if (responses[i].getLiked().equals("no")) {
-                    noCount++;
-                }
             }
         }
-        return ((float)yesCount / (float)(noCount + yesCount));
+        return yesCount;
     }
 }
