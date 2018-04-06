@@ -6,12 +6,6 @@
 // do.
 // -- Samuel Tyson (samuelmt)
 
-/**
- * This class 
- *
- * @author <Samuel Tyson> <samuelmt>
- * @version 2018.MM.DD
- */
 package prj5;
 
 /**

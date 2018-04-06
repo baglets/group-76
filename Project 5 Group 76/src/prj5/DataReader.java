@@ -22,7 +22,7 @@ import java.util.Scanner;
 public class DataReader {
 
     // Fields
-    // private SongList<Song> songs;
+    private SongList<Song> songs;
 
     /**
      * Default constructor.
@@ -37,7 +37,7 @@ public class DataReader {
         throws FileNotFoundException {
 
         // Read the song file using readSongFile
-        songList = readSongFile(songFile);
+        songs = readSongFile(songFile);
 
         // Read the response file using readResponseFile
         readResponseFile(responseFile);

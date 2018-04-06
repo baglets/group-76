@@ -1,5 +1,9 @@
 package prj5;
 
+import CS2114.Button;
+import CS2114.Window;
+import CS2114.WindowSide;
+
 /**
  * 
  */
