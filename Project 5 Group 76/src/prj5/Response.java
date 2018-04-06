@@ -6,7 +6,7 @@
 // do.
 // -- Samuel Tyson (samuelmt)
 
-package project;
+package prj5;
 
 /**
  * This class represents a response from a student about one of the songs.

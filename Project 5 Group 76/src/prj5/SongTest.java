@@ -12,7 +12,7 @@
  * @author <Samuel Tyson> <samuelmt>
  * @version 2018.MM.DD
  */
-package project;
+package prj5;
 
 import junit.framework.TestCase;
 

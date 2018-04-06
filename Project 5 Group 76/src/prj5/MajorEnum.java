@@ -7,25 +7,17 @@
 // -- Samuel Tyson (samuelmt)
 
 /**
- * This class is the project runner. It runs the project (Duh).
+ * This class
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.04
+ * @version 2018.MM.DD
  */
-package project;
+package prj5;
 
 /**
  * @author samue
  *
  */
-public class ProjectRunner {
-
-    // jmgreen4 Testing Eclipse integration with GIT
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-
-    }
-
+public enum MajorEnum {
+    CS, OTHER_ENGINEERING, MATH_OR_CMDA, OTHER
 }

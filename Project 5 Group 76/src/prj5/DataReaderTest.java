@@ -6,7 +6,7 @@
 // do.
 // -- Samuel Tyson (samuelmt)
 
-package project;
+package prj5;
 
 import java.io.FileNotFoundException;
 import junit.framework.TestCase;

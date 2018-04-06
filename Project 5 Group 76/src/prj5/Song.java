@@ -6,7 +6,7 @@
 // do.
 // -- Samuel Tyson (samuelmt)
 
-package project;
+package prj5;
 
 /**
  * This class represents one of the songs from the file. It will have an array

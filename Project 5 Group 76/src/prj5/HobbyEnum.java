@@ -12,12 +12,12 @@
  * @author <Samuel Tyson> <samuelmt>
  * @version 2018.MM.DD
  */
-package project;
+package prj5;
 
 /**
  * @author samue
  *
  */
-public enum RegionEnum {
-    NORTHEAST, SOUTHEAST, REST, OUTSIDE
+public enum HobbyEnum {
+    READ, ART, SPORTS, MUSIC //check Daniel
 }
