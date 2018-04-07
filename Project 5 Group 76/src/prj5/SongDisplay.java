@@ -35,9 +35,9 @@ public class SongDisplay {
 
     private void setBar1(Shape bar)
     {
-        int width = this.getHeard() + this.getLiked();
-        bar1 = new Rectangle(this.getHeardHobby()-this.getLikedHobby(), y, 
-            width, this.BAR_HEIGHT); // Can't think of how we reference the getHeard and getLiked methods here.
+        //int width = this.getHeard() + this.getLiked();
+//        bar1 = new Rectangle(this.getHeardHobby()-this.getLikedHobby(), y, 
+//            width, this.BAR_HEIGHT); // Can't think of how we reference the getHeard and getLiked methods here.
     }
 
 

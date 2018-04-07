@@ -14,7 +14,7 @@ import CS2114.WindowSide;
  */
 public class Displayer {
 
-    private SongList<Song> songs;
+    //private SongList<Song> songs;
     private Song[] songDisplays;
     private Window window;
     private Button prevButton;
@@ -29,7 +29,7 @@ public class Displayer {
     private Button regionButton;
 
 
-    public Displayer(SongList<Song> songList) {
+    /*public Displayer(SongList<Song> songList) {
 
         window = new Window("Project 5");
         prevButton = new Button("Prev");
@@ -53,7 +53,7 @@ public class Displayer {
         window.addButton(regionButton, WindowSide.SOUTH);
         window.addButton(quitButton, WindowSide.SOUTH);
 
-    }
+    }*/
 
 
     public void representHobby() {

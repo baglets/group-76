@@ -294,5 +294,26 @@ public class SongList {
     public boolean swapNext() {
         return false;
     }
+    
+    /**
+     * 
+     * 
+     */
+    public void addResponses(HobbyEnum hobby, MajorEnum major, RegionEnum region, String[] inputs) {
+        String heard;
+        String liked;
+        Node<Song> curr = firstNode;
+        for (int i = 5; i < inputs.length && curr != null; i += 2) {
+            heard = inputs[i];
+            if (i + 1 < inputs.length) {
+                liked = inputs[i + 1];
+            }
+            else {
+                liked = "";
+            }
+            curr.getData().addResponse(new Response(hobby, major, region, heard, liked));
+            curr = curr.next;
+        }
+    }
 
 }

@@ -14,18 +14,25 @@
  */
 package prj5;
 
+import java.io.FileNotFoundException;
+
 /**
  * @author samue
  *
  */
-public class ProjectRunner {
+public class Input {
 
-    // jmgreen4 Testing Eclipse integration with GIT
     /**
      * @param args
+     * @throws FileNotFoundException 
      */
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws FileNotFoundException {
+        if (args.length == 2) {
+            DataReader dataReader = new DataReader(args[0], args[1]);
+        }
+        else {
+            DataReader dataReader = new DataReader("SongList.csv", "MusicSurveyData.csv");
+        }
     }
 
 }
