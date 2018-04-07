@@ -74,6 +74,11 @@ public class SongList {
     }
 
 
+    public boolean isEmpty() {
+        return (size == 0);
+    }
+
+
     public Node<Song> getFirst() {
         return firstNode;
     }
@@ -263,10 +268,29 @@ public class SongList {
 
 
     public void add(Song newSong) {
+        // check if the object is null
+        if (newSong == null) {
+            throw new IllegalArgumentException("Object is null");
+        }
 
+        Node<Song> current = firstNode;
+
+        // empty stack case
+        if (isEmpty()) {
+            firstNode = new Node<Song>(newSong);
+        }
+
+        // other cases
+        else {
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.setNext(new Node<Song>(newSong));
+        }
+        size++;
     }
 
-
+    //Swapping places?
     public boolean swapNext() {
         return false;
     }
