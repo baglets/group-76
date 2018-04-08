@@ -3,7 +3,6 @@
  */
 package prj5;
 
-import prj5.SongList.Node;
 
 /**
  * @author Daniel Kim
@@ -314,6 +313,24 @@ public class SongList {
             curr.getData().addResponse(new Response(hobby, major, region, heard, liked));
             curr = curr.next;
         }
+    }
+    
+    
+    public Song get(int num) {
+        int count = 0;
+        Node<Song> curr = firstNode;
+        
+        Song song = null;
+        
+        while (curr != null && song == null) {
+            if (count == num) {
+                song = curr.getData();
+            }
+            curr = curr.next;
+            count++;
+        }
+        
+        return song;
     }
 
 }

@@ -115,12 +115,22 @@ public class Song {
         int yesCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getHobby().equals(hobby)) {
-                if (responses[i].getHeard().equals("yes")) {
+                if (responses[i].getHeard().equals("Yes")) {
                     yesCount++;
                 }
             }
         }
-        return yesCount;
+        
+        int total = 0;
+        for (int i = 0; i < numResponses; i++) {
+            if (responses[i].getHobby().equals(hobby)) {
+                total++;
+            }
+        }
+        if (total == 0) {
+            return 0;
+        }
+        return (int)(100 * ((float)yesCount/(float)total));
     }
 
 
@@ -136,12 +146,22 @@ public class Song {
         int yesCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getMajor().equals(major)) {
-                if (responses[i].getHeard().equals("yes")) {
+                if (responses[i].getHeard().equals("Yes")) {
                     yesCount++;
                 }
             }
         }
-        return yesCount;
+        
+        int total = 0;
+        for (int i = 0; i < numResponses; i++) {
+            if (responses[i].getMajor().equals(major)) {
+                total++;
+            }
+        }
+        if (total == 0) {
+            return 0;
+        }
+        return (int)(100 * ((float)yesCount/(float)total));
     }
 
 
@@ -157,12 +177,22 @@ public class Song {
         int yesCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getRegion().equals(region)) {
-                if (responses[i].getHeard().equals("yes")) {
+                if (responses[i].getHeard().equals("Yes")) {
                     yesCount++;
                 }
             }
         }
-        return yesCount;
+        
+        int total = 0;
+        for (int i = 0; i < numResponses; i++) {
+            if (responses[i].getRegion().equals(region)) {
+                total++;
+            }
+        }
+        if (total == 0) {
+            return 0;
+        }
+        return (int)(100 * ((float)yesCount/(float)total));
     }
 
 
@@ -178,12 +208,22 @@ public class Song {
         int yesCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getHobby().equals(hobby)) {
-                if (responses[i].getLiked().equals("yes")) {
+                if (responses[i].getLiked().equals("Yes")) {
                     yesCount++;
                 }
             }
         }
-        return yesCount;
+        
+        int total = 0;
+        for (int i = 0; i < numResponses; i++) {
+            if (responses[i].getHobby().equals(hobby)) {
+                total++;
+            }
+        }
+        if (total == 0) {
+            return 0;
+        }
+        return (int)(100 * ((float)yesCount/(float)total));
     }
 
 
@@ -199,12 +239,22 @@ public class Song {
         int yesCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getMajor().equals(major)) {
-                if (responses[i].getLiked().equals("yes")) {
+                if (responses[i].getLiked().equals("Yes")) {
                     yesCount++;
                 }
             }
         }
-        return yesCount;
+
+        int total = 0;
+        for (int i = 0; i < numResponses; i++) {
+            if (responses[i].getMajor().equals(major)) {
+                total++;
+            }
+        }
+        if (total == 0) {
+            return 0;
+        }
+        return (int)(100 * ((float)yesCount/(float)total));
     }
 
 
@@ -220,13 +270,21 @@ public class Song {
         int yesCount = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getRegion().equals(region)) {
-                if (responses[i].getLiked().equals("yes")) {
+                if (responses[i].getLiked().equals("Yes")) {
                     yesCount++;
                 }
             }
         }
-        return yesCount;
+
+        int total = 0;
+        for (int i = 0; i < numResponses; i++) {
+            if (responses[i].getRegion().equals(region)) {
+                total++;
+            }
+        }
+        if (total == 0) {
+            return 0;
+        }
+        return (int)(100 * ((float)yesCount/(float)total));
     }
-    
-    
 }

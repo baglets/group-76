@@ -14,8 +14,8 @@ import CS2114.WindowSide;
  */
 public class Displayer {
 
-    //private SongList<Song> songs;
-    private Song[] songDisplays;
+    // private SongList<Song> songs;
+    private SongList songs;
     private Window window;
     private Button prevButton;
     private Button nextButton;
@@ -29,7 +29,7 @@ public class Displayer {
     private Button regionButton;
 
 
-    /*public Displayer(SongList<Song> songList) {
+    public Displayer(SongList songList) {
 
         window = new Window("Project 5");
         prevButton = new Button("Prev");
@@ -53,11 +53,41 @@ public class Displayer {
         window.addButton(regionButton, WindowSide.SOUTH);
         window.addButton(quitButton, WindowSide.SOUTH);
 
-    }*/
+        songs = songList;
+
+        representHobby();
+        
+    }
 
 
     public void representHobby() {
+        int songNumber = 0;
+        Song currentSong = songs.get(songNumber);
 
+        while (currentSong != null) {
+            System.out.println("Song Title: " + currentSong.getName());
+            System.out.println("Song Artist: " + currentSong.getArtist());
+            System.out.println("Song Genre: " + currentSong.getGenre());
+            System.out.println("Song Year: " + currentSong.getYear());
+            
+            System.out.println("Heard");
+            String line = "reading:" + currentSong.getHeardHobby(HobbyEnum.READ)
+                + " art:" + currentSong.getHeardHobby(HobbyEnum.ART)
+                + " sports:" + currentSong.getHeardHobby(HobbyEnum.SPORTS)
+                + " music:" + currentSong.getHeardHobby(HobbyEnum.MUSIC);
+            System.out.println(line);
+            
+            System.out.println("Likes");
+            line = "reading:" + currentSong.getLikedHobby(HobbyEnum.READ)
+                + " art:" + currentSong.getLikedHobby(HobbyEnum.ART)
+                + " sports:" + currentSong.getLikedHobby(HobbyEnum.SPORTS)
+                + " music:" + currentSong.getLikedHobby(HobbyEnum.MUSIC);
+            System.out.println(line);
+
+            songNumber++;
+            currentSong = songs.get(songNumber);
+            System.out.println("\n");
+        }
     }
 
 

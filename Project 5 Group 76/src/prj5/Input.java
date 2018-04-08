@@ -27,12 +27,14 @@ public class Input {
      * @throws FileNotFoundException 
      */
     public static void main(String[] args) throws FileNotFoundException {
+        DataReader dataReader;
         if (args.length == 2) {
-            DataReader dataReader = new DataReader(args[0], args[1]);
+            dataReader = new DataReader(args[0], args[1]);
         }
         else {
-            DataReader dataReader = new DataReader("SongList.csv", "MusicSurveyData.csv");
+            dataReader = new DataReader("MusicSurveyData.csv", "SongList.csv");
         }
+        Displayer display = new Displayer(dataReader.getSongList());
     }
 
 }

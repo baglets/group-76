@@ -44,6 +44,6 @@ public class DataReaderTest extends TestCase {
      * @throws FileNotFoundException 
      */
     public void testConstructor() throws FileNotFoundException {
-        dr = new DataReader("SongList.csv", "MusicSurveyData.csv");
+        dr = new DataReader("MusicSurveyData.csv", "SongList.csv");
     }
 }

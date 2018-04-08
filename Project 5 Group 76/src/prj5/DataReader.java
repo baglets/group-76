@@ -23,6 +23,8 @@ public class DataReader {
 
     // Fields
     private SongList songs;
+    
+
 
     /**
      * Default constructor.
@@ -33,7 +35,7 @@ public class DataReader {
      *            The file name for the responses
      * @throws FileNotFoundException
      */
-    public DataReader(String songFile, String responseFile)
+    public DataReader(String responseFile, String songFile)
         throws FileNotFoundException {
 
         // Read the song file using readSongFile
@@ -88,6 +90,8 @@ public class DataReader {
             songList.add(song);
         }
         
+        scanner.close();
+
         return songList;
     }
 
@@ -117,16 +121,16 @@ public class DataReader {
 
         // Loop through the file
         while (scanner.hasNextLine()) {
-            
+
             skipSong = false;
-            
+
             // Get the line then split it by commas
             line = scanner.nextLine();
             input = line.split(", *");
 
             ID = Integer.parseInt(input[0]);
             time = input[1];
-            
+
             if (input.length <= 6) {
                 break;
             }
@@ -191,7 +195,17 @@ public class DataReader {
                 songs.addResponses(hobby, major, region, input);
             }
         }
-        
+        scanner.close();
         return true;
+    }
+
+
+    /**
+     * This gets the SongList field.
+     * 
+     * @return songs
+     */
+    public SongList getSongList() {
+        return songs;
     }
 }
