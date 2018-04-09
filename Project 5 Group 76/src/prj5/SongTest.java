@@ -39,13 +39,25 @@ public class SongTest extends TestCase {
     public void setUp() {
         song = new Song("1985", 2004, "Smash Mouth", "Rock");
         song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
-            RegionEnum.NORTHEAST, "yes", "yes"));
+            RegionEnum.NORTHEAST, "no", "no"));
+        song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
+            RegionEnum.NORTHEAST, "", ""));
         song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
             RegionEnum.NORTHEAST, "yes", "yes"));
         song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
             RegionEnum.NORTHEAST, "yes", "yes"));
+        song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
+            RegionEnum.NORTHEAST, "yes", "yes"));
+        song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
+            RegionEnum.NORTHEAST, "no", "no"));
+        song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
+            RegionEnum.NORTHEAST, "", ""));
         song.addResponse(new Response(HobbyEnum.MUSIC, MajorEnum.MATH_OR_CMDA,
             RegionEnum.OUTSIDE, "yes", "yes"));
+        song.addResponse(new Response(HobbyEnum.MUSIC, MajorEnum.MATH_OR_CMDA,
+            RegionEnum.OUTSIDE, "no", "no"));
+        song.addResponse(new Response(HobbyEnum.MUSIC, MajorEnum.MATH_OR_CMDA,
+            RegionEnum.OUTSIDE, "", ""));
     }
 
 

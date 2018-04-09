@@ -10,6 +10,8 @@
 package prj5;
 
 /**
+ * This tests the Response class.
+ * 
  * @author jmgreen4
  * @version 2018.04.09
  */

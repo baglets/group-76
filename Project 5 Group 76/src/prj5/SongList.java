@@ -27,7 +27,7 @@ public class SongList {
      *            The data type
      */
     @SuppressWarnings("hiding")
-    private static class Node<Song> {
+    public static class Node<Song> {
 
         // The data element stored in the node.
         private Song data;
