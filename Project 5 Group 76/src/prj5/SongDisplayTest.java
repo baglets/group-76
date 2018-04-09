@@ -20,10 +20,6 @@ import junit.framework.TestCase;
 
 public class SongDisplayTest extends TestCase {
 
-    // Fields
-    private SongDisplay sd;
-
-
     /**
      * Default constructor.
      */
@@ -48,7 +44,7 @@ public class SongDisplayTest extends TestCase {
         Shape bar2 = new Shape(0, 0);
         Shape bar3 = new Shape(0, 0);
         Shape bar4 = new Shape(0, 0);
-        sd = new SongDisplay(bar1, bar2, bar3, bar4);
+        SongDisplay sd = new SongDisplay(bar1, bar2, bar3, bar4);
 
         assertEquals(5, sd.BAR_HEIGHT);
     }
