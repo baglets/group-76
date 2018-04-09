@@ -5,21 +5,19 @@
 // nor will I accept the actions of those who
 // do.
 // -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
 
 /**
- * This class
+ * This is the test class for the SongList class.
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.MM.DD
+ * @version 2018.04.09
  */
 package prj5;
 
 import junit.framework.TestCase;
 
-/**
- * @author samue
- *
- */
 public class SongListTest extends TestCase {
 
     // Fields
@@ -60,6 +58,20 @@ public class SongListTest extends TestCase {
     public void testSortArtist() {
         songs.sortArtist();
         assertTrue(songs.getFirst().getData().getArtist().equals("Pink"));
+        Song song1 = new Song("Candle In The Wind", 1973, "Elton John", "Rock");
+        Song song2 = new Song("Shake It Off", 2015, "Taylor Swift", "Pop");
+        Song song3 = new Song("Aaa", 2011, "Me", "Pop");
+        songs.add(song1);
+        songs.add(song2);
+        songs.add(song3);
+        songs.sortArtist();
+        assertTrue(songs.getFirst().getData().getName().equals(
+            "Candle In The Wind"));
+        songs = new SongList();
+        Song song4 = new Song("All Star", 2004, "Smash mouth", "Rock");
+        songs.add(song4);
+        songs.sortArtist();
+        assertTrue(songs.getFirst().getData().getName().equals("All Star"));
     }
 
 
@@ -67,8 +79,20 @@ public class SongListTest extends TestCase {
      * This tests the sortTitle method.
      */
     public void testSortTitle() {
+        Song song1 = new Song("Candle In The Wind", 1973, "Elton John", "Rock");
+        Song song2 = new Song("Shake It Off", 2015, "Taylor Swift", "Pop");
+        Song song3 = new Song("Aaa", 2011, "Me", "Pop");
+        songs.add(song1);
+        songs.add(song2);
+        songs.add(song3);
+        songs.sortTitle();
+        assertTrue(songs.getFirst().getData().getName().equals("Aaa"));
+        songs = new SongList();
+        Song song4 = new Song("All Star", 2004, "Smash mouth", "Rock");
+        songs.add(song4);
         songs.sortTitle();
         assertTrue(songs.getFirst().getData().getName().equals("All Star"));
+
     }
 
 
@@ -78,6 +102,19 @@ public class SongListTest extends TestCase {
     public void testSortGenre() {
         songs.sortGenre();
         assertTrue(songs.getFirst().getData().getGenre().equals("Dance Rock"));
+        Song song1 = new Song("Candle In The Wind", 1973, "Elton John", "Rock");
+        Song song2 = new Song("Shake It Off", 2015, "Taylor Swift", "Pop");
+        Song song3 = new Song("Aaa", 2011, "Me", "Aaa");
+        songs.add(song1);
+        songs.add(song2);
+        songs.add(song3);
+        songs.sortGenre();
+        assertTrue(songs.getFirst().getData().getName().equals("Aaa"));
+        songs = new SongList();
+        Song song4 = new Song("All Star", 2004, "Smash mouth", "Rock");
+        songs.add(song4);
+        songs.sortGenre();
+        assertTrue(songs.getFirst().getData().getName().equals("All Star"));
     }
 
 
@@ -87,6 +124,20 @@ public class SongListTest extends TestCase {
     public void testSortDate() {
         songs.sortDate();
         assertEquals(2004, songs.getFirst().getData().getYear());
+        Song song1 = new Song("Candle In The Wind", 1973, "Elton John", "Rock");
+        Song song2 = new Song("Shake It Off", 2015, "Taylor Swift", "Pop");
+        Song song3 = new Song("Aaa", 2011, "Me", "Pop");
+        songs.add(song1);
+        songs.add(song2);
+        songs.add(song3);
+        songs.sortDate();
+        assertTrue(songs.getFirst().getData().getName().equals(
+            "Candle In The Wind"));
+        songs = new SongList();
+        Song song4 = new Song("All Star", 2004, "Smash mouth", "Rock");
+        songs.add(song4);
+        songs.sortDate();
+        assertTrue(songs.getFirst().getData().getName().equals("All Star"));
     }
 
 

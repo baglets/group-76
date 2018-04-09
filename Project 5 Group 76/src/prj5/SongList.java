@@ -1,4 +1,5 @@
 // Virginia Tech Honor Code Pledge:
+
 //
 // As a Hokie, I will conduct myself with honor and integrity at all times.
 // I will not lie, cheat, or steal,
@@ -27,7 +28,7 @@ public class SongList {
      *            The data type
      */
     @SuppressWarnings("hiding")
-    public static class Node<Song> {
+    static class Node<Song> {
 
         // The data element stored in the node.
         private Song data;
