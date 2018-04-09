@@ -5,26 +5,32 @@
 // nor will I accept the actions of those who
 // do.
 // -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
 
-/**
- * This class is the project runner. It runs the project (Duh).
- *
- * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.04
- */
 package prj5;
 
 import java.io.FileNotFoundException;
 
 /**
- * @author samue
+ * This class is the project runner. It will create the data reader and use the
+ * strings passed in as arguments to read the two files. Finally, it will create
+ * the displayer.
  *
+ * @author <Samuel Tyson> <samuelmt>
+ * @version 2018.04.08
  */
+
 public class Input {
 
     /**
+     * This is the main method. It will run the program, creating a DataReader
+     * and Displayer.
+     * 
      * @param args
-     * @throws FileNotFoundException 
+     *            The file names as strings in an array
+     * @throws FileNotFoundException
+     *             is thrown if the files do not exist
      */
     public static void main(String[] args) throws FileNotFoundException {
         DataReader dataReader;
@@ -34,6 +40,7 @@ public class Input {
         else {
             dataReader = new DataReader("MusicSurveyData.csv", "SongList.csv");
         }
+        @SuppressWarnings("unused")
         Displayer display = new Displayer(dataReader.getSongList());
     }
 

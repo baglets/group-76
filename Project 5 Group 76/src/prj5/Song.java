@@ -5,6 +5,8 @@
 // nor will I accept the actions of those who
 // do.
 // -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
 
 package prj5;
 
@@ -13,7 +15,7 @@ package prj5;
  * of responses from each student that responded to the survey.
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.04
+ * @version 2018.04.08
  */
 
 public class Song {
@@ -25,9 +27,9 @@ public class Song {
     private String genre;
     private int year;
     private int numResponses;
-    private final int MAX_RESPONSES = 210;
+    private static final int MAX_RESPONSES = 210;
 
-    // TESTING
+
     /**
      * Default constructor.
      * 
@@ -112,7 +114,7 @@ public class Song {
      * @return how many reponses said yes to hearing it
      */
     public int getHeardHobby(HobbyEnum hobby) {
-         int yesCount = 0;
+        int yesCount = 0;
         int total = 0;
         for (int i = 0; i < numResponses; i++) {
             if (responses[i].getHobby().equals(hobby)) {
@@ -125,7 +127,7 @@ public class Song {
                 }
             }
         }
-        return (int)(100 * ((float)yesCount/(float)total));
+        return (int)(100 * ((float)yesCount / (float)total));
     }
 
 
@@ -151,7 +153,7 @@ public class Song {
                 }
             }
         }
-        return (int)(100 * ((float)yesCount/(float)total));
+        return (int)(100 * ((float)yesCount / (float)total));
     }
 
 
@@ -177,7 +179,7 @@ public class Song {
                 }
             }
         }
-        return (int)(100 * ((float)yesCount/(float)total));
+        return (int)(100 * ((float)yesCount / (float)total));
     }
 
 
@@ -203,7 +205,7 @@ public class Song {
                 }
             }
         }
-        return (int)(100 * ((float)yesCount/(float)total));
+        return (int)(100 * ((float)yesCount / (float)total));
     }
 
 
@@ -229,7 +231,7 @@ public class Song {
                 }
             }
         }
-        return (int)(100 * ((float)yesCount/(float)total));
+        return (int)(100 * ((float)yesCount / (float)total));
     }
 
 
@@ -255,6 +257,6 @@ public class Song {
                 }
             }
         }
-        return (int)(100 * ((float)yesCount/(float)total));
+        return (int)(100 * ((float)yesCount / (float)total));
     }
 }

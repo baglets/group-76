@@ -5,6 +5,8 @@
 // nor will I accept the actions of those who
 // do.
 // -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
 
 package prj5;
 
@@ -13,17 +15,17 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * This class reads the Song and Responses files and compiles them into lists
+ * This class reads the Song and Responses files and compiles the songs into a
+ * list and the responses into arrays within each song.
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.05
+ * @version 2018.04.08
  */
 
 public class DataReader {
 
     // Fields
     private SongList songs;
-    
 
 
     /**
@@ -46,6 +48,15 @@ public class DataReader {
     }
 
 
+    /**
+     * This reads the song file and compiles it into a SongList object.
+     * 
+     * @param fileName
+     *            The name of the file
+     * @return the SongList object created from the parsed file
+     * @throws FileNotFoundException
+     *             if the file with that name does not exist
+     */
     private SongList readSongFile(String fileName)
         throws FileNotFoundException {
 
@@ -89,13 +100,23 @@ public class DataReader {
 
             songList.add(song);
         }
-        
+
         scanner.close();
 
         return songList;
     }
 
 
+    /**
+     * This reads the students' resposnes and adds them to their respective
+     * songs.
+     * 
+     * @param fileName
+     *            The name of the file
+     * @return true if it succeeded and false if not
+     * @throws FileNotFoundException
+     *             if the file with that name does not exist
+     */
     private boolean readResponseFile(String fileName)
         throws FileNotFoundException {
         // Get the file using the file name
@@ -110,12 +131,9 @@ public class DataReader {
         Scanner scanner = new Scanner(file);
 
         // Declare variables to create response
-        int ID;
-        String time;
         HobbyEnum hobby = HobbyEnum.ART;
         MajorEnum major = MajorEnum.CS;
         RegionEnum region = RegionEnum.NORTHEAST;
-        String heard, liked;
         boolean skipSong;
         scanner.nextLine();
 
@@ -127,9 +145,6 @@ public class DataReader {
             // Get the line then split it by commas
             line = scanner.nextLine();
             input = line.split(", *");
-
-            ID = Integer.parseInt(input[0]);
-            time = input[1];
 
             if (input.length <= 6) {
                 continue;
@@ -203,7 +218,7 @@ public class DataReader {
     /**
      * This gets the SongList field.
      * 
-     * @return songs
+     * @return the list of songs
      */
     public SongList getSongList() {
         return songs;

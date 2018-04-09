@@ -5,17 +5,20 @@
 // nor will I accept the actions of those who
 // do.
 // -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
 
 package prj5;
 
 import java.io.FileNotFoundException;
+// import java.io.FileNotFoundException;
 import junit.framework.TestCase;
 
 /**
  * This class tests the DataReader class.
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.05
+ * @version 2018.04.08
  */
 
 public class DataReaderTest extends TestCase {
@@ -34,16 +37,22 @@ public class DataReaderTest extends TestCase {
 
     /**
      * Set up.
+     * 
+     * @throws FileNotFoundException
      */
-    public void setUp() {
+    public void setUp() throws FileNotFoundException {
+        dr = new DataReader("MusicSurveyData.csv", "SongList.csv");
     }
 
 
     /**
      * This tests the constructor
-     * @throws FileNotFoundException 
+     * 
+     * @throws FileNotFoundException
      */
     public void testConstructor() throws FileNotFoundException {
-        dr = new DataReader("MusicSurveyData.csv", "SongList.csv");
+        dr = new DataReader("MusicSurveyDataTest1.csv", "SongListTest1.csv");
+
+        assertFalse(dr.getSongList().isEmpty());
     }
 }

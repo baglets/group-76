@@ -5,16 +5,19 @@
 // nor will I accept the actions of those who
 // do.
 // -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
 
-/**
- * This class
- *
- * @author <Samuel Tyson> <samuelmt>
- * @version 2018.MM.DD
- */
 package prj5;
 
 import junit.framework.TestCase;
+
+/**
+ * This class tests the song class.
+ *
+ * @author <Samuel Tyson> <samuelmt>
+ * @version 2018.2018.08
+ */
 
 public class SongTest extends TestCase {
 
@@ -99,14 +102,14 @@ public class SongTest extends TestCase {
         assertEquals(1, song.getLikedRegion(RegionEnum.OUTSIDE));
     }
 
-    
+
     /**
      * This tests getting the heard for region
      */
     public void testOther() {
         song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,
             RegionEnum.NORTHEAST, "no", "no"));
-        
+
         assertEquals(3, song.getHeardRegion(RegionEnum.NORTHEAST));
         assertEquals(3, song.getLikedRegion(RegionEnum.NORTHEAST));
     }

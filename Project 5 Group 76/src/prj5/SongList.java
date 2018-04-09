@@ -1,17 +1,33 @@
-/**
- * 
- */
+// Virginia Tech Honor Code Pledge:
+//
+// As a Hokie, I will conduct myself with honor and integrity at all times.
+// I will not lie, cheat, or steal,
+// nor will I accept the actions of those who
+// do.
+// -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
+
 package prj5;
 
-
 /**
+ * This class is the list of songs that will be compiled from the song file.
+ * 
  * @author Daniel Kim
- *
+ * @version 2018.04.05
  */
 public class SongList {
 
+    /**
+     * This is the inner node class.
+     * 
+     * @author Daniel Kim
+     * @version 2018.04.05
+     * @param <Song>
+     *            The data type
+     */
     @SuppressWarnings("hiding")
-    public static class Node<Song> {
+    private static class Node<Song> {
 
         // The data element stored in the node.
         private Song data;
@@ -62,30 +78,46 @@ public class SongList {
         }
     }
 
+    // Fields
     private Node<Song> firstNode;
-
     private int size;
 
 
+    /**
+     * Default constructor.
+     */
     public SongList() {
         firstNode = null;
         size = 0;
     }
 
 
+    /**
+     * This checks if the list is empty.
+     * 
+     * @return true if it is and false if it is not
+     */
     public boolean isEmpty() {
         return (size == 0);
     }
 
 
+    /**
+     * This gets the first node.
+     * 
+     * @return firstNode
+     */
     public Node<Song> getFirst() {
         return firstNode;
     }
 
-    // Using insertion sort to sort the linked list
 
-
-    // Method to locate where to move the mode
+    /**
+     * Method to locate where to move the mode.
+     * 
+     * @param nodeToInsert
+     *            The one to move
+     */
     private void insertInOrderArtist(Node<Song> nodeToInsert) {
         String artist = nodeToInsert.getData().getArtist();
         Node<Song> curr = firstNode;
@@ -112,7 +144,9 @@ public class SongList {
     }
 
 
-    // Method that performs the insertion sort
+    /**
+     * Method that performs the insertion sort.
+     */
     public void sortArtist() {
         if (size > 1) {
             assert firstNode != null;
@@ -131,13 +165,11 @@ public class SongList {
 
 
     /**
-     * ------------------TODO---------------------------
-     * Note all the sorting methods can be written
-     * almost the same way. Will search for a more
-     * efficient way than writing a bunch of
-     * private methods for each method.
+     * Method to insert based on title.
+     * 
+     * @param nodeToInsert
+     *            The one to insert.
      */
-
     private void insertInOrderTitle(Node<Song> nodeToInsert) {
         String title = nodeToInsert.getData().getName();
         Node<Song> curr = firstNode;
@@ -164,6 +196,9 @@ public class SongList {
     }
 
 
+    /**
+     * Method to sort by title.
+     */
     public void sortTitle() {
         if (size > 1) {
             assert firstNode != null;
@@ -183,6 +218,12 @@ public class SongList {
     }
 
 
+    /**
+     * Method to sort by genre using insertion.
+     * 
+     * @param nodeToInsert
+     *            The one to insert
+     */
     private void insertInOrderGenre(Node<Song> nodeToInsert) {
         String genre = nodeToInsert.getData().getGenre();
         Node<Song> curr = firstNode;
@@ -209,6 +250,9 @@ public class SongList {
     }
 
 
+    /**
+     * Method to sort by genre.
+     */
     public void sortGenre() {
         if (size > 1) {
             assert firstNode != null;
@@ -228,6 +272,12 @@ public class SongList {
     }
 
 
+    /**
+     * Method to insert based on date.
+     * 
+     * @param nodeToInsert
+     *            The one to insert
+     */
     private void insertInOrderDate(Node<Song> nodeToInsert) {
         int year = nodeToInsert.getData().getYear();
         Node<Song> curr = firstNode;
@@ -253,6 +303,9 @@ public class SongList {
     }
 
 
+    /**
+     * Method to sort by date.
+     */
     public void sortDate() {
         if (size > 1) {
             assert firstNode != null;
@@ -270,6 +323,12 @@ public class SongList {
     }
 
 
+    /**
+     * This method adds a new song.
+     * 
+     * @param newSong
+     *            The song to add
+     */
     public void add(Song newSong) {
         // check if the object is null
         if (newSong == null) {
@@ -293,16 +352,24 @@ public class SongList {
         size++;
     }
 
-    //Swapping places?
-    public boolean swapNext() {
-        return false;
-    }
-    
+
     /**
+     * This adds responses to all the songs.
      * 
-     * 
+     * @param hobby
+     *            The hobby of the responder
+     * @param major
+     *            The major of the responder
+     * @param region
+     *            The region of the responder
+     * @param inputs
+     *            The responses of the responder
      */
-    public void addResponses(HobbyEnum hobby, MajorEnum major, RegionEnum region, String[] inputs) {
+    public void addResponses(
+        HobbyEnum hobby,
+        MajorEnum major,
+        RegionEnum region,
+        String[] inputs) {
         String heard;
         String liked;
         Node<Song> curr = firstNode;
@@ -314,18 +381,26 @@ public class SongList {
             else {
                 liked = "";
             }
-            curr.getData().addResponse(new Response(hobby, major, region, heard, liked));
+            curr.getData().addResponse(new Response(hobby, major, region, heard,
+                liked));
             curr = curr.next;
         }
     }
-    
-    
+
+
+    /**
+     * This gets the song at the num position.
+     * 
+     * @param num
+     *            The position to get
+     * @return the song at the position
+     */
     public Song get(int num) {
         int count = 0;
         Node<Song> curr = firstNode;
-        
+
         Song song = null;
-        
+
         while (curr != null && song == null) {
             if (count == num) {
                 song = curr.getData();
@@ -333,7 +408,7 @@ public class SongList {
             curr = curr.next;
             count++;
         }
-        
+
         return song;
     }
 

@@ -5,6 +5,8 @@
 // nor will I accept the actions of those who
 // do.
 // -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
 
 package prj5;
 
@@ -12,7 +14,7 @@ package prj5;
  * This class represents a response from a student about one of the songs.
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.04
+ * @version 2018.04.08
  */
 
 public class Response {
@@ -26,7 +28,18 @@ public class Response {
 
 
     /**
-     * Default constructor
+     * Default constructor.
+     * 
+     * @param h
+     *            The hobby
+     * @param m
+     *            The major
+     * @param r
+     *            The region
+     * @param hd
+     *            The heard string
+     * @param ld
+     *            The liked string
      */
     public Response(
         HobbyEnum h,
@@ -50,8 +63,8 @@ public class Response {
     public HobbyEnum getHobby() {
         return hobby;
     }
-    
-    
+
+
     /**
      * This gets the major of the responder.
      * 
@@ -60,8 +73,8 @@ public class Response {
     public MajorEnum getMajor() {
         return major;
     }
-    
-    
+
+
     /**
      * This gets the region of the responder.
      * 
@@ -70,8 +83,8 @@ public class Response {
     public RegionEnum getRegion() {
         return region;
     }
-    
-    
+
+
     /**
      * This gets whether the song is heard or not.
      * 
@@ -80,8 +93,8 @@ public class Response {
     public String getHeard() {
         return heard;
     }
-    
-    
+
+
     /**
      * This gets whether the song is liked or not.
      * 

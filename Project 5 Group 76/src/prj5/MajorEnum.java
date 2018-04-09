@@ -5,19 +5,18 @@
 // nor will I accept the actions of those who
 // do.
 // -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
 
-/**
- * This class
- *
- * @author <Samuel Tyson> <samuelmt>
- * @version 2018.MM.DD
- */
 package prj5;
 
 /**
- * @author samue
+ * This is the enum for the 4 majors.
  *
+ * @author <Samuel Tyson> <samuelmt>
+ * @version 2018.04.08
  */
+
 public enum MajorEnum {
     CS, OTHER_ENGINEERING, MATH_OR_CMDA, OTHER
 }
