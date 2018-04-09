@@ -149,12 +149,10 @@ public class SongList {
      * Method that performs the insertion sort.
      */
     public void sortArtist() {
-        if (size > 1) {
-            assert firstNode != null;
-            // Break chain into sorted and unsorted sections
-        }
         Node<Song> unsortedPiece = firstNode.getNext();
-        assert unsortedPiece != null;
+        if (unsortedPiece == null) {
+            return;
+        }
         firstNode.setNext(null);
 
         while (unsortedPiece != null) {
@@ -201,10 +199,6 @@ public class SongList {
      * Method to sort by title.
      */
     public void sortTitle() {
-        if (size > 1) {
-            assert firstNode != null;
-            // Break chain into sorted and unsorted sections
-        }
         Node<Song> unsortedPiece = firstNode.getNext();
         if (unsortedPiece == null) {
             return;
@@ -255,10 +249,6 @@ public class SongList {
      * Method to sort by genre.
      */
     public void sortGenre() {
-        if (size > 1) {
-            assert firstNode != null;
-            // Break chain into sorted and unsorted sections
-        }
         Node<Song> unsortedPiece = firstNode.getNext();
         if (unsortedPiece == null) {
             return;
@@ -308,12 +298,10 @@ public class SongList {
      * Method to sort by date.
      */
     public void sortDate() {
-        if (size > 1) {
-            assert firstNode != null;
-            // Break chain into sorted and unsorted sections
-        }
         Node<Song> unsortedPiece = firstNode.getNext();
-        assert unsortedPiece != null;
+        if (unsortedPiece == null) {
+            return;
+        }
         firstNode.setNext(null);
 
         while (unsortedPiece != null) {

@@ -8,15 +8,16 @@
 // -- Daniel Kim (dkim845)
 // -- Jarred Green (jmgreen4)
 
+package prj5;
+
+import junit.framework.TestCase;
+
 /**
  * This is the test class for the SongList class.
  *
  * @author <Samuel Tyson> <samuelmt>
  * @version 2018.04.09
  */
-package prj5;
-
-import junit.framework.TestCase;
 
 public class SongListTest extends TestCase {
 
@@ -71,7 +72,7 @@ public class SongListTest extends TestCase {
         Song song4 = new Song("All Star", 2004, "Smash mouth", "Rock");
         songs.add(song4);
         songs.sortArtist();
-        assertTrue(songs.getFirst().getData().getName().equals("All Star"));
+        assertEquals("All Star", songs.getFirst().getData().getName());
     }
 
 
@@ -162,12 +163,19 @@ public class SongListTest extends TestCase {
      * This tests the addResponses method.
      */
     public void testAddResponses() {
-        String[] inputs = { "", "", "", "", "", "yes", "yes", "yes" };
+        String[] inputs = { "", "", "", "", "", "Yes", "Yes", "Yes" };
 
         songs.addResponses(HobbyEnum.ART, MajorEnum.CS, RegionEnum.NORTHEAST,
             inputs);
 
-        assertEquals(0, songs.getFirst().getData().getHeardHobby(
+        assertEquals(100, songs.getFirst().getData().getHeardHobby(
+            HobbyEnum.ART));
+
+        String[] inputs2 = { "", "", "", "", "", "Yes", "Yes", "Yes", "Yes",
+            "No", "", "Yes", "Yes" };
+        songs.addResponses(HobbyEnum.ART, MajorEnum.CS, RegionEnum.NORTHEAST,
+            inputs2);
+        assertEquals(100, songs.getFirst().getData().getHeardHobby(
             HobbyEnum.ART));
     }
 
