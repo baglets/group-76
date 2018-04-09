@@ -170,7 +170,9 @@ public class SongList {
             // Break chain into sorted and unsorted sections
         }
         Node<Song> unsortedPiece = firstNode.getNext();
-        assert unsortedPiece != null;
+        if (unsortedPiece == null) {
+            return;
+        }
         firstNode.setNext(null);
 
         while (unsortedPiece != null) {
@@ -213,7 +215,9 @@ public class SongList {
             // Break chain into sorted and unsorted sections
         }
         Node<Song> unsortedPiece = firstNode.getNext();
-        assert unsortedPiece != null;
+        if (unsortedPiece == null) {
+            return;
+        }
         firstNode.setNext(null);
 
         while (unsortedPiece != null) {

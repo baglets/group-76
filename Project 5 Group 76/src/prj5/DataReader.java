@@ -132,7 +132,7 @@ public class DataReader {
             time = input[1];
 
             if (input.length <= 6) {
-                break;
+                continue;
             }
 
             // This checks for the major
@@ -162,7 +162,7 @@ public class DataReader {
                 case "United States (other than Southeast or Northwest)":
                     region = RegionEnum.REST;
                     break;
-                case "region":
+                case "Northeast":
                     region = RegionEnum.NORTHEAST;
                     break;
                 case "Outside of United States":

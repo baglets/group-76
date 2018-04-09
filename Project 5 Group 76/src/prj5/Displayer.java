@@ -55,6 +55,9 @@ public class Displayer {
 
         songs = songList;
 
+        songs.sortGenre();
+        representHobby();
+        songs.sortTitle();
         representHobby();
         
     }
@@ -86,7 +89,7 @@ public class Displayer {
 
             songNumber++;
             currentSong = songs.get(songNumber);
-            System.out.println("\n");
+            System.out.println("");
         }
     }
 

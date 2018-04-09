@@ -50,19 +50,19 @@ public class InputReferenceTest3 extends student.TestCase {
             System.out.println(e.getMessage());
 
         }
-
+        
         while (fileData.hasNextLine()) {
             output2TitleGenreHobby += fileData.nextLine() + "\n";
         }
 
+
+        @SuppressWarnings("unused")
+        String line = systemOut().getHistory();
         assertFuzzyEquals("Output not as expected for input files "
                 + "MusicSurveyDataTest2.csv and SongListTest2.csv",
                 output2TitleGenreHobby, systemOut().getHistory());
 
     }
-
-    
-    
     /**
      * Test the program with the class survey data from 6 students about only
      * 5 songs.
