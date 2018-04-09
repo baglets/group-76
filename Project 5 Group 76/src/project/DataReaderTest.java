@@ -41,7 +41,8 @@ public class DataReaderTest extends TestCase {
 
     /**
      * This tests the constructor
-     * @throws FileNotFoundException 
+     * 
+     * @throws FileNotFoundException
      */
     public void testConstructor() throws FileNotFoundException {
         dr = new DataReader("songs.txt", "");

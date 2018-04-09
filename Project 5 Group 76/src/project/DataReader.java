@@ -178,8 +178,9 @@ public class DataReader {
             for (int i = 5; i < input.length; i += 2) {
                 heard = input[i];
                 liked = input[i + 1];
-                Response response = new Response(hobby, major, region, heard, liked);
-                
+                Response response = new Response(hobby, major, region, heard,
+                    liked);
+
                 songs.get(songNumber).addResponse(response);
             }
         }
