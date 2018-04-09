@@ -114,23 +114,23 @@ public class Displayer {
     /**
      * This represents the data based on major.
      */
-    public void representMajor() {
-        // Not yet implemented
-    }
-
-
-    /**
-     * This represents the data based on region.
-     */
-    public void representRegion() {
-        // Not yet implemented
-    }
-
-
-    /**
-     * This will display the data.
-     */
-    public void display() {
-        // Not yet implemented
-    }
+//    public void representMajor() {
+//        // Not yet implemented
+//    }
+//
+//
+//    /**
+//     * This represents the data based on region.
+//     */
+//    public void representRegion() {
+//        // Not yet implemented
+//    }
+//
+//
+//    /**
+//     * This will display the data.
+//     */
+//    public void display() {
+//        // Not yet implemented
+//    }
 }

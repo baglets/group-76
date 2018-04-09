@@ -57,50 +57,49 @@ public class SongDisplay {
 // this.setBar4(bar4);
     }
 
+// /**
+// * This will set the information for the bar.
+// *
+// * @param bar
+// * The bar shape to use
+// */
+// private void setBar1(Shape bar) {
+// // int width = this.getHeard() + this.getLiked();
+//// bar1 = new Rectangle(this.getHeardHobby()-this.getLikedHobby(), y,
+//// width, this.BAR_HEIGHT); // Can't think of how we reference the getHeard
+// and
+//// getLiked methods here.
+// }
 
-    /**
-     * This will set the information for the bar.
-     * 
-     * @param bar
-     *            The bar shape to use
-     */
-    private void setBar1(Shape bar) {
-        // int width = this.getHeard() + this.getLiked();
-// bar1 = new Rectangle(this.getHeardHobby()-this.getLikedHobby(), y,
-// width, this.BAR_HEIGHT); // Can't think of how we reference the getHeard and
-// getLiked methods here.
-    }
-
-
-    /**
-     * This will set the information for the bar.
-     * 
-     * @param bar
-     *            The bar shape to use
-     */
-    private void setBar2(Shape bar) {
-        // Not implemented yet
-    }
-
-
-    /**
-     * This will set the information for the bar.
-     * 
-     * @param bar
-     *            The bar shape to use
-     */
-    private void setBar3(Shape bar) {
-        // Not implemented yet
-    }
-
-
-    /**
-     * This will set the information for the bar.
-     * 
-     * @param bar
-     *            The bar shape to use
-     */
-    private void setBar4(Shape bar) {
-        // Not implemented yet
-    }
+// /**
+// * This will set the information for the bar.
+// *
+// * @param bar
+// * The bar shape to use
+// */
+// private void setBar2(Shape bar) {
+// // Not implemented yet
+// }
+//
+//
+// /**
+// * This will set the information for the bar.
+// *
+// * @param bar
+// * The bar shape to use
+// */
+// private void setBar3(Shape bar) {
+// // Not implemented yet
+// }
+//
+//
+// /**
+// * This will set the information for the bar.
+// *
+// * @param bar
+// * The bar shape to use
+// */
+// private void setBar4(Shape bar) {
+// // Not implemented yet
+// }
 }
