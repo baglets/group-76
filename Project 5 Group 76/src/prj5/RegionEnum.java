@@ -5,19 +5,18 @@
 // nor will I accept the actions of those who
 // do.
 // -- Samuel Tyson (samuelmt)
+// -- Daniel Kim (dkim845)
+// -- Jarred Green (jmgreen4)
+
+package prj5;
 
 /**
- * This class
- *
+ * This is the enum that holds the 4 regions.
+ * 
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.MM.DD
- */
-package project;
-
-/**
- * @author samue
+ * @version 2018.04.08
  *
  */
-public enum MajorEnum {
-    CS, OTHER_ENGINEERING, MATH_OR_CMDA, OTHER
+public enum RegionEnum {
+    NORTHEAST, SOUTHEAST, REST, OUTSIDE
 }
