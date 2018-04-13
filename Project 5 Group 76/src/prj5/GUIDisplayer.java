@@ -11,6 +11,7 @@
 package prj5;
 
 import java.awt.Color;
+import java.lang.Enum;
 import CS2114.Button;
 import CS2114.Shape;
 import CS2114.TextShape;
@@ -94,6 +95,7 @@ public class GUIDisplayer {
 
         hobbyButton.onClick(this, "hobbyButton");
         majorButton.onClick(this, "majorButton");
+        regionButton.onClick(this, "regionButton");
         nextButton.onClick(this, "nextButton");
         prevButton.onClick(this, "prevButton");
 
@@ -112,7 +114,26 @@ public class GUIDisplayer {
 
 
     public void initializeShapes() {
+        Enum<?> compare1, compare2, compare3, compare4;
         Song currentSong = songs.get(songNumber);
+        if (currentRep.equals("major")) {
+            compare1 = MajorEnum.CS;
+            compare2 = MajorEnum.OTHER_ENGINEERING;
+            compare3 = MajorEnum.MATH_OR_CMDA;
+            compare4 = MajorEnum.OTHER;
+        }
+        else if (currentRep.equals("region")) {
+            compare1 = RegionEnum.NORTHEAST;
+            compare2 = RegionEnum.SOUTHEAST;
+            compare3 = RegionEnum.REST;
+            compare4 = RegionEnum.OUTSIDE;
+        }
+        else {
+            compare1 = HobbyEnum.READ;
+            compare2 = HobbyEnum.ART;
+            compare3 = HobbyEnum.SPORTS;
+            compare4 = HobbyEnum.MUSIC;
+        }
         int x, y, width;
         // Loop through the spots on the window
         for (int ySpot = 1; ySpot <= 3; ySpot++) {
@@ -145,10 +166,10 @@ public class GUIDisplayer {
                 songTexts[songNumber * 2 + 1] = songName;
 
                 // Create first Bar
-                width = (int)((currentSong.getHeardHobby(HobbyEnum.READ)
-                    + currentSong.getLikedHobby(HobbyEnum.READ)) * BAR_SIZE);
+                width = (int)((currentSong.getHeard(compare1)
+                    + currentSong.getLiked(compare1)) * BAR_SIZE);
                 x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                    .getHeardHobby(HobbyEnum.READ) * BAR_SIZE));
+                    .getHeard(compare1) * BAR_SIZE));
                 y = ((BAR_Y_INTERVAL * ySpot) - BAR_HEIGHT * 2) - BAR_HEIGHT
                     / 2;
 
@@ -157,10 +178,10 @@ public class GUIDisplayer {
                 barShapes[songNumber * 4] = bar1;
 
                 // Create second Bar
-                width = (int)((currentSong.getHeardHobby(HobbyEnum.ART)
-                    + currentSong.getLikedHobby(HobbyEnum.ART)) * BAR_SIZE);
+                width = (int)((currentSong.getHeard(compare2)
+                    + currentSong.getLiked(compare2)) * BAR_SIZE);
                 x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                    .getHeardHobby(HobbyEnum.ART) * BAR_SIZE));
+                    .getHeard(compare2) * BAR_SIZE));
                 y = y + BAR_HEIGHT;
 
                 Shape bar2 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_2);
@@ -168,10 +189,10 @@ public class GUIDisplayer {
                 barShapes[songNumber * 4 + 1] = bar2;
 
                 // Create third Bar
-                width = (int)((currentSong.getHeardHobby(HobbyEnum.SPORTS)
-                    + currentSong.getLikedHobby(HobbyEnum.SPORTS)) * BAR_SIZE);
+                width = (int)((currentSong.getHeard(compare3)
+                    + currentSong.getLiked(compare3)) * BAR_SIZE);
                 x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                    .getHeardHobby(HobbyEnum.SPORTS) * BAR_SIZE));
+                    .getHeard(compare3) * BAR_SIZE));
                 y = y + BAR_HEIGHT;
 
                 Shape bar3 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_3);
@@ -179,10 +200,10 @@ public class GUIDisplayer {
                 barShapes[songNumber * 4 + 2] = bar3;
 
                 // Create fourth Bar
-                width = (int)((currentSong.getHeardHobby(HobbyEnum.MUSIC)
-                    + currentSong.getLikedHobby(HobbyEnum.MUSIC)) * BAR_SIZE);
+                width = (int)((currentSong.getHeard(compare4)
+                    + currentSong.getLiked(compare4)) * BAR_SIZE);
                 x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                    .getHeardHobby(HobbyEnum.MUSIC) * BAR_SIZE));
+                    .getHeard(compare4) * BAR_SIZE));
                 y = y + BAR_HEIGHT;
 
                 Shape bar4 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_4);
@@ -203,16 +224,10 @@ public class GUIDisplayer {
      * Just testing with this
      */
     public void refresh() {
-        Enum compare1, compare2, compare3, compare4;
+        Enum<?> compare1, compare2, compare3, compare4;
         songNumber = showNumber;
         Song currentSong = songs.get(songNumber);
-        if (currentRep.equals("hobby")) {
-            compare1 = HobbyEnum.READ;
-            compare2 = HobbyEnum.ART;
-            compare3 = HobbyEnum.SPORTS;
-            compare4 = HobbyEnum.MUSIC;
-        }
-        else if (currentRep.equals("major")) {
+        if (currentRep.equals("major")) {
             compare1 = MajorEnum.CS;
             compare2 = MajorEnum.OTHER_ENGINEERING;
             compare3 = MajorEnum.MATH_OR_CMDA;
@@ -224,6 +239,13 @@ public class GUIDisplayer {
             compare3 = RegionEnum.REST;
             compare4 = RegionEnum.OUTSIDE;
         }
+        else {
+            compare1 = HobbyEnum.READ;
+            compare2 = HobbyEnum.ART;
+            compare3 = HobbyEnum.SPORTS;
+            compare4 = HobbyEnum.MUSIC;
+        }
+        
         int x, y, width;
 
         // Loop through the spots on the window
@@ -262,11 +284,11 @@ public class GUIDisplayer {
                     // Update first Bar
                     Shape bar1 = barShapes[(songNumber % 9) * 4];
                     window.removeShape(bar1);
-                    width = (int)((currentSong.getHeardHobby(HobbyEnum.READ)
-                        + currentSong.getLikedHobby(HobbyEnum.READ))
+                    width = (int)((currentSong.getHeard(compare1)
+                        + currentSong.getLiked(compare1))
                         * BAR_SIZE);
                     x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardHobby(HobbyEnum.READ) * BAR_SIZE));
+                        .getHeard(compare1) * BAR_SIZE));
                     y = ((BAR_Y_INTERVAL * ySpot) - BAR_HEIGHT * 2) - BAR_HEIGHT
                         / 2;
 
@@ -277,10 +299,10 @@ public class GUIDisplayer {
                     // Update second Bar
                     Shape bar2 = barShapes[(songNumber % 9) * 4 + 1];
                     window.removeShape(bar2);
-                    width = (int)((currentSong.getHeardHobby(HobbyEnum.ART)
-                        + currentSong.getLikedHobby(HobbyEnum.ART)) * BAR_SIZE);
+                    width = (int)((currentSong.getHeard(compare2)
+                        + currentSong.getLiked(compare2)) * BAR_SIZE);
                     x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardHobby(HobbyEnum.ART) * BAR_SIZE));
+                        .getHeard(compare2) * BAR_SIZE));
                     y = y + BAR_HEIGHT;
 
                     bar2 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_2);
@@ -290,11 +312,11 @@ public class GUIDisplayer {
                     // Create third Bar
                     Shape bar3 = barShapes[(songNumber % 9) * 4 + 2];
                     window.removeShape(bar3);
-                    width = (int)((currentSong.getHeardHobby(HobbyEnum.SPORTS)
-                        + currentSong.getLikedHobby(HobbyEnum.SPORTS))
+                    width = (int)((currentSong.getHeard(compare3)
+                        + currentSong.getLiked(compare3))
                         * BAR_SIZE);
                     x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardHobby(HobbyEnum.SPORTS) * BAR_SIZE));
+                        .getHeard(compare3) * BAR_SIZE));
                     y = y + BAR_HEIGHT;
 
                     bar3 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_3);
@@ -304,11 +326,11 @@ public class GUIDisplayer {
                     // Create fourth Bar
                     Shape bar4 = barShapes[(songNumber % 9) * 4 + 3];
                     window.removeShape(bar4);
-                    width = (int)((currentSong.getHeardHobby(HobbyEnum.MUSIC)
-                        + currentSong.getLikedHobby(HobbyEnum.MUSIC))
+                    width = (int)((currentSong.getHeard(compare4)
+                        + currentSong.getLiked(compare4))
                         * BAR_SIZE);
                     x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardHobby(HobbyEnum.MUSIC) * BAR_SIZE));
+                        .getHeard(compare4) * BAR_SIZE));
                     y = y + BAR_HEIGHT;
 
                     bar4 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_4);
@@ -323,19 +345,19 @@ public class GUIDisplayer {
                     System.out.println("Song Year: " + currentSong.getYear());
 
                     System.out.println("Heard");
-                    String line = "reading:" + currentSong.getHeardHobby(
-                        HobbyEnum.READ) + " art:" + currentSong.getHeardHobby(
-                            HobbyEnum.ART) + " sports:" + currentSong
-                                .getHeardHobby(HobbyEnum.SPORTS) + " music:"
-                        + currentSong.getHeardHobby(HobbyEnum.MUSIC);
+                    String line = "Bar 1:" + currentSong.getHeard(
+                        compare1) + " Bar 2:" + currentSong.getHeard(
+                            compare2) + " Bar 3:" + currentSong
+                                .getHeard(compare3) + " Bar 4:"
+                        + currentSong.getHeard(compare4);
                     System.out.println(line);
 
                     System.out.println("Likes");
-                    line = "reading:" + currentSong.getLikedHobby(
-                        HobbyEnum.READ) + " art:" + currentSong.getLikedHobby(
-                            HobbyEnum.ART) + " sports:" + currentSong
-                                .getLikedHobby(HobbyEnum.SPORTS) + " music:"
-                        + currentSong.getLikedHobby(HobbyEnum.MUSIC);
+                    line = "reading:" + currentSong.getLiked(
+                        compare1) + " art:" + currentSong.getLiked(
+                            compare2) + " sports:" + currentSong
+                                .getLiked(compare3) + " music:"
+                        + currentSong.getLiked(compare4);
                     System.out.println(line);
                     System.out.println("");
                 }
@@ -347,290 +369,39 @@ public class GUIDisplayer {
         }
     }
 
-
-    /**
-     * This represents the data by hobby. For now it only outputs hobby data to
-     * the console.
-     */
-    public void representHobby() {
-        songNumber = showNumber;
-        Song currentSong = songs.get(songNumber);
-        int x, y, width;
-
-        // Loop through the spots on the window
-        for (int ySpot = 1; ySpot <= 3; ySpot++) {
-            for (int xSpot = 1; xSpot <= 3; xSpot++) {
-                if (currentSong == null) {
-                    window.removeShape(songTexts[(songNumber % 9) * 2]);
-                    window.removeShape(songTexts[(songNumber % 9) * 2 + 1]);
-                    window.removeShape(barShapes[(songNumber % 9) * 4]);
-                    window.removeShape(barShapes[(songNumber % 9) * 4 + 1]);
-                    window.removeShape(barShapes[(songNumber % 9) * 4 + 2]);
-                    window.removeShape(barShapes[(songNumber % 9) * 4 + 3]);
-                    window.removeShape(poleShapes[songNumber % 9]);
-                }
-                else {
-                    window.addShape(poleShapes[songNumber % 9]);
-                    // Create the Text Shape for the artist
-                    TextShape text = songTexts[(songNumber % 9) * 2];
-                    text.setText(currentSong.getArtist());
-                    text.setX(getX(xSpot, text.getWidth()));
-                    window.addShape(text);
-
-                    // Create the Text Shape for song name
-                    text = songTexts[(songNumber % 9) * 2 + 1];
-                    text.setText(currentSong.getName());
-                    text.setX(getX(xSpot, text.getWidth()));
-                    window.addShape(text);
-
-                    // Create first Bar
-                    Shape bar1 = barShapes[(songNumber % 9) * 4];
-                    window.removeShape(bar1);
-                    width = (int)((currentSong.getHeardHobby(HobbyEnum.READ)
-                        + currentSong.getLikedHobby(HobbyEnum.READ))
-                        * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardHobby(HobbyEnum.READ) * BAR_SIZE));
-                    y = ((BAR_Y_INTERVAL * ySpot) - BAR_HEIGHT * 2) - BAR_HEIGHT
-                        / 2;
-
-                    bar1 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_1);
-                    window.addShape(bar1);
-                    barShapes[(songNumber % 9) * 4] = bar1;
-
-                    // Create second Bar
-                    Shape bar2 = barShapes[(songNumber % 9) * 4 + 1];
-                    window.removeShape(bar2);
-                    width = (int)((currentSong.getHeardHobby(HobbyEnum.ART)
-                        + currentSong.getLikedHobby(HobbyEnum.ART)) * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardHobby(HobbyEnum.ART) * BAR_SIZE));
-                    y = y + BAR_HEIGHT;
-
-                    bar2 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_2);
-                    window.addShape(bar2);
-                    barShapes[(songNumber % 9) * 4 + 1] = bar2;
-
-                    // Create third Bar
-                    Shape bar3 = barShapes[(songNumber % 9) * 4 + 2];
-                    window.removeShape(bar3);
-                    width = (int)((currentSong.getHeardHobby(HobbyEnum.SPORTS)
-                        + currentSong.getLikedHobby(HobbyEnum.SPORTS))
-                        * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardHobby(HobbyEnum.SPORTS) * BAR_SIZE));
-                    y = y + BAR_HEIGHT;
-
-                    bar3 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_3);
-                    window.addShape(bar3);
-                    barShapes[(songNumber % 9) * 4 + 2] = bar3;
-
-                    // Create fourth Bar
-                    Shape bar4 = barShapes[(songNumber % 9) * 4 + 3];
-                    window.removeShape(bar4);
-                    width = (int)((currentSong.getHeardHobby(HobbyEnum.MUSIC)
-                        + currentSong.getLikedHobby(HobbyEnum.MUSIC))
-                        * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardHobby(HobbyEnum.MUSIC) * BAR_SIZE));
-                    y = y + BAR_HEIGHT;
-
-                    bar4 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_4);
-                    window.addShape(bar4);
-                    barShapes[(songNumber % 9) * 4 + 3] = bar4;
-
-                    // OUTPUT TO CONSOLE
-                    System.out.println("Song Title: " + currentSong.getName());
-                    System.out.println("Song Artist: " + currentSong
-                        .getArtist());
-                    System.out.println("Song Genre: " + currentSong.getGenre());
-                    System.out.println("Song Year: " + currentSong.getYear());
-
-                    System.out.println("Heard");
-                    String line = "reading:" + currentSong.getHeardHobby(
-                        HobbyEnum.READ) + " art:" + currentSong.getHeardHobby(
-                            HobbyEnum.ART) + " sports:" + currentSong
-                                .getHeardHobby(HobbyEnum.SPORTS) + " music:"
-                        + currentSong.getHeardHobby(HobbyEnum.MUSIC);
-                    System.out.println(line);
-
-                    System.out.println("Likes");
-                    line = "reading:" + currentSong.getLikedHobby(
-                        HobbyEnum.READ) + " art:" + currentSong.getLikedHobby(
-                            HobbyEnum.ART) + " sports:" + currentSong
-                                .getLikedHobby(HobbyEnum.SPORTS) + " music:"
-                        + currentSong.getLikedHobby(HobbyEnum.MUSIC);
-                    System.out.println(line);
-                    System.out.println("");
-                }
-
-                // Update number and song
-                songNumber++;
-                currentSong = songs.get(songNumber);
-            }
-        }
-    }
-
-
-    public void representMajor() {
-        songNumber = showNumber;
-        Song currentSong = songs.get(songNumber);
-        int x, y, width;
-
-        // Loop through the spots on the window
-        for (int ySpot = 1; ySpot <= 3; ySpot++) {
-            for (int xSpot = 1; xSpot <= 3; xSpot++) {
-                if (currentSong == null) {
-                    window.removeShape(songTexts[(songNumber % 9) * 2]);
-                    window.removeShape(songTexts[(songNumber % 9) * 2 + 1]);
-                    window.removeShape(barShapes[(songNumber % 9) * 4]);
-                    window.removeShape(barShapes[(songNumber % 9) * 4 + 1]);
-                    window.removeShape(barShapes[(songNumber % 9) * 4 + 2]);
-                    window.removeShape(barShapes[(songNumber % 9) * 4 + 3]);
-                    window.removeShape(poleShapes[songNumber % 9]);
-                }
-                else {
-                    window.addShape(poleShapes[songNumber % 9]);
-                    // Create the Text Shape for the artist
-                    TextShape text = songTexts[(songNumber % 9) * 2];
-                    text.setText(currentSong.getArtist());
-                    text.setX(getX(xSpot, text.getWidth()));
-                    window.addShape(text);
-
-                    // Create the Text Shape for song name
-                    text = songTexts[(songNumber % 9) * 2 + 1];
-                    text.setText(currentSong.getName());
-                    text.setX(getX(xSpot, text.getWidth()));
-                    window.addShape(text);
-
-                    // Create first Bar
-                    Shape bar1 = barShapes[(songNumber % 9) * 4];
-                    window.removeShape(bar1);
-                    width = (int)((currentSong.getHeardMajor(MajorEnum.CS)
-                        + currentSong.getLikedMajor(MajorEnum.CS)) * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardMajor(MajorEnum.CS) * BAR_SIZE));
-                    y = ((BAR_Y_INTERVAL * ySpot) - BAR_HEIGHT * 2) - BAR_HEIGHT
-                        / 2;
-
-                    bar1 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_1);
-                    window.addShape(bar1);
-                    barShapes[(songNumber % 9) * 4] = bar1;
-
-                    // Create second Bar
-                    Shape bar2 = barShapes[(songNumber % 9) * 4 + 1];
-                    window.removeShape(bar2);
-                    width = (int)((currentSong.getHeardMajor(
-                        MajorEnum.OTHER_ENGINEERING) + currentSong
-                            .getLikedMajor(MajorEnum.OTHER_ENGINEERING))
-                        * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardMajor(MajorEnum.OTHER_ENGINEERING)
-                        * BAR_SIZE));
-                    y = y + BAR_HEIGHT;
-
-                    bar2 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_2);
-                    window.addShape(bar2);
-                    barShapes[(songNumber % 9) * 4 + 1] = bar2;
-
-                    // Create third Bar
-                    Shape bar3 = barShapes[(songNumber % 9) * 4 + 2];
-                    window.removeShape(bar3);
-                    width = (int)((currentSong.getHeardMajor(
-                        MajorEnum.MATH_OR_CMDA) + currentSong.getLikedMajor(
-                            MajorEnum.MATH_OR_CMDA)) * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardMajor(MajorEnum.MATH_OR_CMDA) * BAR_SIZE));
-                    y = y + BAR_HEIGHT;
-
-                    bar3 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_3);
-                    window.addShape(bar3);
-                    barShapes[(songNumber % 9) * 4 + 2] = bar3;
-
-                    // Create fourth Bar
-                    Shape bar4 = barShapes[(songNumber % 9) * 4 + 3];
-                    window.removeShape(bar4);
-                    width = (int)((currentSong.getHeardMajor(MajorEnum.OTHER)
-                        + currentSong.getLikedMajor(MajorEnum.OTHER))
-                        * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeardMajor(MajorEnum.OTHER) * BAR_SIZE));
-                    y = y + BAR_HEIGHT;
-
-                    bar4 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_4);
-                    window.addShape(bar4);
-                    barShapes[(songNumber % 9) * 4 + 3] = bar4;
-
-                    // OUTPUT TO CONSOLE
-                    System.out.println("Song Title: " + currentSong.getName());
-                    System.out.println("Song Artist: " + currentSong
-                        .getArtist());
-                    System.out.println("Song Genre: " + currentSong.getGenre());
-                    System.out.println("Song Year: " + currentSong.getYear());
-
-                    System.out.println("Heard");
-                    String line = "CS:" + currentSong.getHeardMajor(
-                        MajorEnum.CS) + " Other Eng:" + currentSong
-                            .getHeardMajor(MajorEnum.OTHER_ENGINEERING)
-                        + " Math/CMDA:" + currentSong.getHeardMajor(
-                            MajorEnum.MATH_OR_CMDA) + " Other:" + currentSong
-                                .getHeardMajor(MajorEnum.OTHER);
-                    System.out.println(line);
-
-                    System.out.println("Likes");
-                    line = "CS:" + currentSong.getLikedMajor(MajorEnum.CS)
-                        + " Other Eng:" + currentSong.getLikedMajor(
-                            MajorEnum.OTHER_ENGINEERING) + " Math/CMDA:"
-                        + currentSong.getLikedMajor(MajorEnum.MATH_OR_CMDA)
-                        + " Other:" + currentSong.getLikedMajor(
-                            MajorEnum.OTHER);
-                    System.out.println(line);
-                    System.out.println("");
-                }
-
-                // Update number and song
-                songNumber++;
-                currentSong = songs.get(songNumber);
-            }
-        }
-    }
-
-
+    
     public void hobbyButton(Button button) {
         currentRep = "hobby";
         showNumber = 0;
-        representHobby();
+        refresh();
     }
 
 
     public void majorButton(Button button) {
         currentRep = "major";
         showNumber = 0;
-        representMajor();
+        refresh();
+    }
+    
+    
+    public void regionButton(Button button) {
+        currentRep = "region";
+        showNumber = 0;
+        refresh();
     }
 
 
     public void nextButton(Button button) {
         if (showNumber + 9 < songs.getSize()) {
             showNumber += 9;
-            if (currentRep.equals("hobby")) {
-                representHobby();
-            }
-            else if (currentRep.equals("major")) {
-                representMajor();
-            }
+            refresh();
         }
     }
 
 
     public void prevButton(Button button) {
         showNumber = Math.max(0, showNumber - 9);
-        if (currentRep.equals("hobby")) {
-            representHobby();
-        }
-        else if (currentRep.equals("major")) {
-            representMajor();
-        }
+        refresh();
     }
 
 

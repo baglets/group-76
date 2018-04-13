@@ -168,14 +168,14 @@ public class SongListTest extends TestCase {
         songs.addResponses(HobbyEnum.ART, MajorEnum.CS, RegionEnum.NORTHEAST,
             inputs);
 
-        assertEquals(100, songs.getFirst().getData().getHeardHobby(
+        assertEquals(100, songs.getFirst().getData().getHeard(
             HobbyEnum.ART));
 
         String[] inputs2 = { "", "", "", "", "", "Yes", "Yes", "Yes", "Yes",
             "No", "", "Yes", "Yes" };
         songs.addResponses(HobbyEnum.ART, MajorEnum.CS, RegionEnum.NORTHEAST,
             inputs2);
-        assertEquals(100, songs.getFirst().getData().getHeardHobby(
+        assertEquals(100, songs.getFirst().getData().getHeard(
             HobbyEnum.ART));
     }
 

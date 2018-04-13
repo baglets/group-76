@@ -106,24 +106,55 @@ public class Song {
 
 
     /**
-     * This returns the number of responses, whose hobby is 'hobby', answered
-     * yes to heard.
+     * This gets the ratio of heard to not heard for the song based on the Enum
+     * passed in as parameter.
      * 
-     * @param hobby
-     *            The hobby to check for
-     * @return how many reponses said yes to hearing it
+     * @param check
+     *            The enum (hobby, major, or region) to check
+     * @return the ratio
      */
-    public int getHeardHobby(HobbyEnum hobby) {
+    public int getHeard(Enum<?> check) {
         int yesCount = 0;
         int total = 0;
-        for (int i = 0; i < numResponses; i++) {
-            if (responses[i].getHobby().equals(hobby)) {
-                if (responses[i].getHeard().equals("Yes")) {
-                    yesCount++;
-                    total++;
+        if (check.getClass() == HobbyEnum.class) {
+            check = (HobbyEnum)check;
+            for (int i = 0; i < numResponses; i++) {
+                if (responses[i].getHobby().equals(check)) {
+                    if (responses[i].getHeard().equals("Yes")) {
+                        yesCount++;
+                        total++;
+                    }
+                    else if (responses[i].getHeard().equals("No")) {
+                        total++;
+                    }
                 }
-                else if (responses[i].getHeard().equals("No")) {
-                    total++;
+            }
+        }
+        else if (check.getClass() == MajorEnum.class) {
+            check = (MajorEnum)check;
+            for (int i = 0; i < numResponses; i++) {
+                if (responses[i].getMajor().equals(check)) {
+                    if (responses[i].getHeard().equals("Yes")) {
+                        yesCount++;
+                        total++;
+                    }
+                    else if (responses[i].getHeard().equals("No")) {
+                        total++;
+                    }
+                }
+            }
+        }
+        else if (check.getClass() == RegionEnum.class) {
+            check = (RegionEnum)check;
+            for (int i = 0; i < numResponses; i++) {
+                if (responses[i].getRegion().equals(check)) {
+                    if (responses[i].getHeard().equals("Yes")) {
+                        yesCount++;
+                        total++;
+                    }
+                    else if (responses[i].getHeard().equals("No")) {
+                        total++;
+                    }
                 }
             }
         }
@@ -132,128 +163,55 @@ public class Song {
 
 
     /**
-     * This returns the number of responses, whose major is 'major', answered
-     * yes to heard.
+     * This gets the ratio of likes to dislikes for the song based on the Enum
+     * passed in as parameter.
      * 
-     * @param major
-     *            The major to check for
-     * @return how many reponses said yes to hearing it
+     * @param check
+     *            The enum (hobby, major, or region) to check
+     * @return the ratio
      */
-    public int getHeardMajor(MajorEnum major) {
+    public int getLiked(Enum<?> check) {
         int yesCount = 0;
         int total = 0;
-        for (int i = 0; i < numResponses; i++) {
-            if (responses[i].getMajor().equals(major)) {
-                if (responses[i].getHeard().equals("Yes")) {
-                    yesCount++;
-                    total++;
-                }
-                else if (responses[i].getHeard().equals("No")) {
-                    total++;
+        if (check.getClass() == HobbyEnum.class) {
+            check = (HobbyEnum)check;
+            for (int i = 0; i < numResponses; i++) {
+                if (responses[i].getHobby().equals(check)) {
+                    if (responses[i].getLiked().equals("Yes")) {
+                        yesCount++;
+                        total++;
+                    }
+                    else if (responses[i].getLiked().equals("No")) {
+                        total++;
+                    }
                 }
             }
         }
-        return (int)(100 * ((float)yesCount / (float)total));
-    }
-
-
-    /**
-     * This returns the number of responses, whose region is 'region', answered
-     * yes to heard.
-     * 
-     * @param region
-     *            The region to check for
-     * @return how many reponses said yes to hearing it
-     */
-    public int getHeardRegion(RegionEnum region) {
-        int yesCount = 0;
-        int total = 0;
-        for (int i = 0; i < numResponses; i++) {
-            if (responses[i].getRegion().equals(region)) {
-                if (responses[i].getHeard().equals("Yes")) {
-                    yesCount++;
-                    total++;
-                }
-                else if (responses[i].getHeard().equals("No")) {
-                    total++;
+        else if (check.getClass() == MajorEnum.class) {
+            check = (MajorEnum)check;
+            for (int i = 0; i < numResponses; i++) {
+                if (responses[i].getMajor().equals(check)) {
+                    if (responses[i].getLiked().equals("Yes")) {
+                        yesCount++;
+                        total++;
+                    }
+                    else if (responses[i].getLiked().equals("No")) {
+                        total++;
+                    }
                 }
             }
         }
-        return (int)(100 * ((float)yesCount / (float)total));
-    }
-
-
-    /**
-     * This returns the number of responses, whose hobby is 'hobby', answered
-     * yes to liked.
-     * 
-     * @param hobby
-     *            The hobby to check for
-     * @return how many reponses said yes to liking it
-     */
-    public int getLikedHobby(HobbyEnum hobby) {
-        int yesCount = 0;
-        int total = 0;
-        for (int i = 0; i < numResponses; i++) {
-            if (responses[i].getHobby().equals(hobby)) {
-                if (responses[i].getLiked().equals("Yes")) {
-                    yesCount++;
-                    total++;
-                }
-                else if (responses[i].getLiked().equals("No")) {
-                    total++;
-                }
-            }
-        }
-        return (int)(100 * ((float)yesCount / (float)total));
-    }
-
-
-    /**
-     * This returns the number of responses, whose major is 'major', answered
-     * yes to liked.
-     * 
-     * @param major
-     *            The major to check for
-     * @return how many reponses said yes to liking it
-     */
-    public int getLikedMajor(MajorEnum major) {
-        int yesCount = 0;
-        int total = 0;
-        for (int i = 0; i < numResponses; i++) {
-            if (responses[i].getMajor().equals(major)) {
-                if (responses[i].getLiked().equals("Yes")) {
-                    yesCount++;
-                    total++;
-                }
-                else if (responses[i].getLiked().equals("No")) {
-                    total++;
-                }
-            }
-        }
-        return (int)(100 * ((float)yesCount / (float)total));
-    }
-
-
-    /**
-     * This returns the number of responses, whose region is 'region', answered
-     * yes to liked.
-     * 
-     * @param region
-     *            The region to check for
-     * @return how many reponses said yes to liking it
-     */
-    public int getLikedRegion(RegionEnum region) {
-        int yesCount = 0;
-        int total = 0;
-        for (int i = 0; i < numResponses; i++) {
-            if (responses[i].getRegion().equals(region)) {
-                if (responses[i].getLiked().equals("Yes")) {
-                    yesCount++;
-                    total++;
-                }
-                else if (responses[i].getLiked().equals("No")) {
-                    total++;
+        else if (check.getClass() == RegionEnum.class) {
+            check = (RegionEnum)check;
+            for (int i = 0; i < numResponses; i++) {
+                if (responses[i].getRegion().equals(check)) {
+                    if (responses[i].getLiked().equals("Yes")) {
+                        yesCount++;
+                        total++;
+                    }
+                    else if (responses[i].getLiked().equals("No")) {
+                        total++;
+                    }
                 }
             }
         }

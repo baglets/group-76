@@ -48,7 +48,7 @@ public class DisplayerTest extends TestCase {
      * This tests the representHobby
      */
     public void testRepresentHobby() {
-        display.representHobby();
+        display.refresh();
         assertFalse(dr.getSongList().isEmpty());
     }
 }
