@@ -41,7 +41,7 @@ public class Input {
             dataReader = new DataReader("MusicSurveyData.csv", "SongList.csv");
         }
         @SuppressWarnings("unused")
-        Displayer display = new Displayer(dataReader.getSongList());
+        GUIDisplayer display = new GUIDisplayer(dataReader.getSongList());
     }
 
 }

@@ -44,9 +44,8 @@ public class SongDisplayTest extends TestCase {
         Shape bar2 = new Shape(0, 0);
         Shape bar3 = new Shape(0, 0);
         Shape bar4 = new Shape(0, 0);
-        SongDisplay sd = new SongDisplay(bar1, bar2, bar3, bar4);
+        GUISongDisplay sd = new GUISongDisplay(bar1, bar2, bar3, bar4);
 
-        assertEquals(5, sd.BAR_HEIGHT);
     }
 
 }

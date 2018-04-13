@@ -21,7 +21,7 @@ import junit.framework.TestCase;
 public class DisplayerTest extends TestCase {
 
     // Fields
-    private Displayer display;
+    private GUIDisplayer display;
     private DataReader dr;
 
 
@@ -40,7 +40,7 @@ public class DisplayerTest extends TestCase {
      */
     public void setUp() throws FileNotFoundException {
         dr = new DataReader("MusicSurveyData.csv", "SongList.csv");
-        display = new Displayer(dr.getSongList());
+        display = new GUIDisplayer(dr.getSongList());
     }
 
 

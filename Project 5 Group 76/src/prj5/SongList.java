@@ -104,6 +104,16 @@ public class SongList {
 
 
     /**
+     * This gets the size of the song list.
+     * 
+     * @return the size
+     */
+    public int getSize() {
+        return size;
+    }
+
+
+    /**
      * This gets the first node.
      * 
      * @return firstNode
