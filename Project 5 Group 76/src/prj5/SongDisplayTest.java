@@ -8,7 +8,6 @@
 
 package prj5;
 
-import CS2114.Shape;
 import junit.framework.TestCase;
 
 /**
@@ -40,11 +39,6 @@ public class SongDisplayTest extends TestCase {
      * This tests the constructor
      */
     public void testSongDisplay() {
-        Shape bar1 = new Shape(0, 0);
-        Shape bar2 = new Shape(0, 0);
-        Shape bar3 = new Shape(0, 0);
-        Shape bar4 = new Shape(0, 0);
-        GUISongDisplay sd = new GUISongDisplay(bar1, bar2, bar3, bar4);
 
     }
 

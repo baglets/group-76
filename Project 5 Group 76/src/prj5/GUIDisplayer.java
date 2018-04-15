@@ -98,6 +98,10 @@ public class GUIDisplayer {
         regionButton.onClick(this, "regionButton");
         nextButton.onClick(this, "nextButton");
         prevButton.onClick(this, "prevButton");
+        titleButton.onClick(this, "titleButton");
+        genreButton.onClick(this, "genreButton");
+        artistButton.onClick(this, "artistButton");
+        dateButton.onClick(this, "dateButton");
 
         songNumber = 0;
         showNumber = 0;
@@ -166,10 +170,10 @@ public class GUIDisplayer {
                 songTexts[songNumber * 2 + 1] = songName;
 
                 // Create first Bar
-                width = (int)((currentSong.getHeard(compare1)
-                    + currentSong.getLiked(compare1)) * BAR_SIZE);
-                x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                    .getHeard(compare1) * BAR_SIZE));
+                width = (int)((currentSong.getHeard(compare1) + currentSong
+                    .getLiked(compare1)) * BAR_SIZE);
+                x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong.getHeard(
+                    compare1) * BAR_SIZE));
                 y = ((BAR_Y_INTERVAL * ySpot) - BAR_HEIGHT * 2) - BAR_HEIGHT
                     / 2;
 
@@ -178,10 +182,10 @@ public class GUIDisplayer {
                 barShapes[songNumber * 4] = bar1;
 
                 // Create second Bar
-                width = (int)((currentSong.getHeard(compare2)
-                    + currentSong.getLiked(compare2)) * BAR_SIZE);
-                x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                    .getHeard(compare2) * BAR_SIZE));
+                width = (int)((currentSong.getHeard(compare2) + currentSong
+                    .getLiked(compare2)) * BAR_SIZE);
+                x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong.getHeard(
+                    compare2) * BAR_SIZE));
                 y = y + BAR_HEIGHT;
 
                 Shape bar2 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_2);
@@ -189,10 +193,10 @@ public class GUIDisplayer {
                 barShapes[songNumber * 4 + 1] = bar2;
 
                 // Create third Bar
-                width = (int)((currentSong.getHeard(compare3)
-                    + currentSong.getLiked(compare3)) * BAR_SIZE);
-                x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                    .getHeard(compare3) * BAR_SIZE));
+                width = (int)((currentSong.getHeard(compare3) + currentSong
+                    .getLiked(compare3)) * BAR_SIZE);
+                x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong.getHeard(
+                    compare3) * BAR_SIZE));
                 y = y + BAR_HEIGHT;
 
                 Shape bar3 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_3);
@@ -200,10 +204,10 @@ public class GUIDisplayer {
                 barShapes[songNumber * 4 + 2] = bar3;
 
                 // Create fourth Bar
-                width = (int)((currentSong.getHeard(compare4)
-                    + currentSong.getLiked(compare4)) * BAR_SIZE);
-                x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                    .getHeard(compare4) * BAR_SIZE));
+                width = (int)((currentSong.getHeard(compare4) + currentSong
+                    .getLiked(compare4)) * BAR_SIZE);
+                x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong.getHeard(
+                    compare4) * BAR_SIZE));
                 y = y + BAR_HEIGHT;
 
                 Shape bar4 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_4);
@@ -218,8 +222,8 @@ public class GUIDisplayer {
             }
         }
     }
-    
-    
+
+
     /**
      * Just testing with this
      */
@@ -245,13 +249,13 @@ public class GUIDisplayer {
             compare3 = HobbyEnum.SPORTS;
             compare4 = HobbyEnum.MUSIC;
         }
-        
+
         int x, y, width;
 
         // Loop through the spots on the window
         for (int ySpot = 1; ySpot <= 3; ySpot++) {
             for (int xSpot = 1; xSpot <= 3; xSpot++) {
-                
+
                 // If there is no next song
                 if (currentSong == null) {
                     window.removeShape(songTexts[(songNumber % 9) * 2]);
@@ -262,13 +266,13 @@ public class GUIDisplayer {
                     window.removeShape(barShapes[(songNumber % 9) * 4 + 3]);
                     window.removeShape(poleShapes[songNumber % 9]);
                 }
-                
+
                 // Otherwise
                 else {
-                    
+
                     // Add the poles
                     window.addShape(poleShapes[songNumber % 9]);
-                    
+
                     // Update the Text Shape for the artist
                     TextShape text = songTexts[(songNumber % 9) * 2];
                     text.setText(currentSong.getArtist());
@@ -284,11 +288,10 @@ public class GUIDisplayer {
                     // Update first Bar
                     Shape bar1 = barShapes[(songNumber % 9) * 4];
                     window.removeShape(bar1);
-                    width = (int)((currentSong.getHeard(compare1)
-                        + currentSong.getLiked(compare1))
-                        * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeard(compare1) * BAR_SIZE));
+                    width = (int)((currentSong.getHeard(compare1) + currentSong
+                        .getLiked(compare1)) * BAR_SIZE);
+                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong.getHeard(
+                        compare1) * BAR_SIZE));
                     y = ((BAR_Y_INTERVAL * ySpot) - BAR_HEIGHT * 2) - BAR_HEIGHT
                         / 2;
 
@@ -299,10 +302,10 @@ public class GUIDisplayer {
                     // Update second Bar
                     Shape bar2 = barShapes[(songNumber % 9) * 4 + 1];
                     window.removeShape(bar2);
-                    width = (int)((currentSong.getHeard(compare2)
-                        + currentSong.getLiked(compare2)) * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeard(compare2) * BAR_SIZE));
+                    width = (int)((currentSong.getHeard(compare2) + currentSong
+                        .getLiked(compare2)) * BAR_SIZE);
+                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong.getHeard(
+                        compare2) * BAR_SIZE));
                     y = y + BAR_HEIGHT;
 
                     bar2 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_2);
@@ -312,11 +315,10 @@ public class GUIDisplayer {
                     // Create third Bar
                     Shape bar3 = barShapes[(songNumber % 9) * 4 + 2];
                     window.removeShape(bar3);
-                    width = (int)((currentSong.getHeard(compare3)
-                        + currentSong.getLiked(compare3))
-                        * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeard(compare3) * BAR_SIZE));
+                    width = (int)((currentSong.getHeard(compare3) + currentSong
+                        .getLiked(compare3)) * BAR_SIZE);
+                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong.getHeard(
+                        compare3) * BAR_SIZE));
                     y = y + BAR_HEIGHT;
 
                     bar3 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_3);
@@ -326,11 +328,10 @@ public class GUIDisplayer {
                     // Create fourth Bar
                     Shape bar4 = barShapes[(songNumber % 9) * 4 + 3];
                     window.removeShape(bar4);
-                    width = (int)((currentSong.getHeard(compare4)
-                        + currentSong.getLiked(compare4))
-                        * BAR_SIZE);
-                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong
-                        .getHeard(compare4) * BAR_SIZE));
+                    width = (int)((currentSong.getHeard(compare4) + currentSong
+                        .getLiked(compare4)) * BAR_SIZE);
+                    x = (int)((getX(xSpot, POLE_WIDTH)) - (currentSong.getHeard(
+                        compare4) * BAR_SIZE));
                     y = y + BAR_HEIGHT;
 
                     bar4 = new Shape(x, y, width, BAR_HEIGHT, COLOR_BAR_4);
@@ -345,18 +346,16 @@ public class GUIDisplayer {
                     System.out.println("Song Year: " + currentSong.getYear());
 
                     System.out.println("Heard");
-                    String line = "Bar 1:" + currentSong.getHeard(
-                        compare1) + " Bar 2:" + currentSong.getHeard(
-                            compare2) + " Bar 3:" + currentSong
-                                .getHeard(compare3) + " Bar 4:"
+                    String line = "Bar 1:" + currentSong.getHeard(compare1)
+                        + " Bar 2:" + currentSong.getHeard(compare2) + " Bar 3:"
+                        + currentSong.getHeard(compare3) + " Bar 4:"
                         + currentSong.getHeard(compare4);
                     System.out.println(line);
 
                     System.out.println("Likes");
-                    line = "reading:" + currentSong.getLiked(
-                        compare1) + " art:" + currentSong.getLiked(
-                            compare2) + " sports:" + currentSong
-                                .getLiked(compare3) + " music:"
+                    line = "Bar 1:" + currentSong.getLiked(compare1) + " Bar 2:"
+                        + currentSong.getLiked(compare2) + " Bar 3:"
+                        + currentSong.getLiked(compare3) + " Bar 4:"
                         + currentSong.getLiked(compare4);
                     System.out.println(line);
                     System.out.println("");
@@ -369,7 +368,13 @@ public class GUIDisplayer {
         }
     }
 
-    
+
+    /**
+     * This fires when the hobby button is clicked.
+     * 
+     * @param button
+     *            The hobby button
+     */
     public void hobbyButton(Button button) {
         currentRep = "hobby";
         showNumber = 0;
@@ -377,13 +382,25 @@ public class GUIDisplayer {
     }
 
 
+    /**
+     * This fires when the major button is clicked.
+     * 
+     * @param button
+     *            The major button
+     */
     public void majorButton(Button button) {
         currentRep = "major";
         showNumber = 0;
         refresh();
     }
-    
-    
+
+
+    /**
+     * This fires when the region button is clicked.
+     * 
+     * @param button
+     *            The region button
+     */
     public void regionButton(Button button) {
         currentRep = "region";
         showNumber = 0;
@@ -391,6 +408,64 @@ public class GUIDisplayer {
     }
 
 
+    /**
+     * This fires when the title button is clicked.
+     * 
+     * @param button
+     *            The title button
+     */
+    public void titleButton(Button button) {
+        songs.sortTitle();
+        showNumber = 0;
+        refresh();
+    }
+    
+    
+    /**
+     * This fires when the Genre button is clicked.
+     * 
+     * @param button
+     *            The genre button
+     */
+    public void genreButton(Button button) {
+        songs.sortGenre();
+        showNumber = 0;
+        refresh();
+    }
+    
+    
+    /**
+     * This fires when the Artist button is clicked.
+     * 
+     * @param button
+     *            The artist button
+     */
+    public void artistButton(Button button) {
+        songs.sortArtist();
+        showNumber = 0;
+        refresh();
+    }
+    
+    
+    /**
+     * This fires when the Date button is clicked.
+     * 
+     * @param button
+     *            The date button
+     */
+    public void dateButton(Button button) {
+        songs.sortDate();
+        showNumber = 0;
+        refresh();
+    }
+
+
+    /**
+     * This fires when the next button is clicked.
+     * 
+     * @param button
+     *            The next button
+     */
     public void nextButton(Button button) {
         if (showNumber + 9 < songs.getSize()) {
             showNumber += 9;
@@ -399,6 +474,12 @@ public class GUIDisplayer {
     }
 
 
+    /**
+     * This fires when the prev button is clicked.
+     * 
+     * @param button
+     *            The prev button
+     */
     public void prevButton(Button button) {
         showNumber = Math.max(0, showNumber - 9);
         refresh();
