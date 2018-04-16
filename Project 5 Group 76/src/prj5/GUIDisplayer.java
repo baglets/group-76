@@ -20,10 +20,13 @@ import CS2114.WindowSide;
 
 /**
  * This class controls the displaying of the info, as well as what each button
- * does.
+ * does. It creates the shapes and reuses them whenever the information
+ * displayed changes.
  * 
  * @author jmgreen4
  * @version 2018.04.08
+ * @author Samuel Tyson <samuelmt>
+ * @version 2018.04.16
  */
 public class GUIDisplayer {
 
@@ -225,7 +228,7 @@ public class GUIDisplayer {
 
 
     /**
-     * Just testing with this
+     * 
      */
     public void refresh() {
         Enum<?> compare1, compare2, compare3, compare4;
@@ -419,8 +422,8 @@ public class GUIDisplayer {
         showNumber = 0;
         refresh();
     }
-    
-    
+
+
     /**
      * This fires when the Genre button is clicked.
      * 
@@ -432,8 +435,8 @@ public class GUIDisplayer {
         showNumber = 0;
         refresh();
     }
-    
-    
+
+
     /**
      * This fires when the Artist button is clicked.
      * 
@@ -445,8 +448,8 @@ public class GUIDisplayer {
         showNumber = 0;
         refresh();
     }
-    
-    
+
+
     /**
      * This fires when the Date button is clicked.
      * 
@@ -490,7 +493,7 @@ public class GUIDisplayer {
      * This gets the proper place to put the shape or text.
      * 
      * @param spot
-     *            The spot on the grid
+     *            The spot on the grid (3 by 3 of song data)
      * @param width
      *            The width of the shape, 0 for the bars
      * @return the proper x
