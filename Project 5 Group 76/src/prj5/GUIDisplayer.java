@@ -102,6 +102,7 @@ public class GUIDisplayer {
         genreButton.onClick(this, "genreButton");
         artistButton.onClick(this, "artistButton");
         dateButton.onClick(this, "dateButton");
+        quitButton.onClick(this, "quitButton");
 
         songNumber = 0;
         showNumber = 0;
@@ -419,8 +420,8 @@ public class GUIDisplayer {
         showNumber = 0;
         refresh();
     }
-    
-    
+
+
     /**
      * This fires when the Genre button is clicked.
      * 
@@ -432,8 +433,8 @@ public class GUIDisplayer {
         showNumber = 0;
         refresh();
     }
-    
-    
+
+
     /**
      * This fires when the Artist button is clicked.
      * 
@@ -445,8 +446,8 @@ public class GUIDisplayer {
         showNumber = 0;
         refresh();
     }
-    
-    
+
+
     /**
      * This fires when the Date button is clicked.
      * 
@@ -483,6 +484,17 @@ public class GUIDisplayer {
     public void prevButton(Button button) {
         showNumber = Math.max(0, showNumber - 9);
         refresh();
+    }
+
+
+    /**
+     * Fired when the quit Button is clicked.
+     * 
+     * @param button
+     *            The quit button.
+     */
+    public void quitButton(Button button) {
+        System.exit(0);
     }
 
 
