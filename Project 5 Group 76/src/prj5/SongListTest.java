@@ -27,6 +27,7 @@ public class SongListTest extends TestCase {
 
     /**
      * Default constructor.
+     * 
      */
     public SongListTest() {
         // Intentionally left empty
@@ -177,6 +178,15 @@ public class SongListTest extends TestCase {
             inputs2);
         assertEquals(100, songs.getFirst().getData().getHeard(
             HobbyEnum.ART));
+    }
+    
+    
+    /**
+     * This tests the get method.
+     */
+    public void testGet() {
+        assertTrue(songs.get(0).getName().equals("All Star"));
+        assertTrue(songs.get(1).getName().equals("So What"));
     }
 
 }

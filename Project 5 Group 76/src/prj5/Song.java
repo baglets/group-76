@@ -144,7 +144,7 @@ public class Song {
                 }
             }
         }
-        else if (check.getClass() == RegionEnum.class) {
+        else {
             check = (RegionEnum)check;
             for (int i = 0; i < numResponses; i++) {
                 if (responses[i].getRegion().equals(check)) {
@@ -201,7 +201,7 @@ public class Song {
                 }
             }
         }
-        else if (check.getClass() == RegionEnum.class) {
+        else {
             check = (RegionEnum)check;
             for (int i = 0; i < numResponses; i++) {
                 if (responses[i].getRegion().equals(check)) {
