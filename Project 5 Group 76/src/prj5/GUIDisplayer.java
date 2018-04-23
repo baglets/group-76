@@ -121,21 +121,28 @@ public class GUIDisplayer {
     }
 
 
+    /**
+     * Method to initalize the shapes and graphical representation
+     * of the songs.
+     */
     public void initializeShapes() {
         Enum<?> compare1, compare2, compare3, compare4;
         Song currentSong = songs.get(songNumber);
+        // Initalizes based on "major" representation
         if (currentRep.equals("major")) {
             compare1 = MajorEnum.CS;
             compare2 = MajorEnum.OTHER_ENGINEERING;
             compare3 = MajorEnum.MATH_OR_CMDA;
             compare4 = MajorEnum.OTHER;
         }
+        // Initalizes based on "region" representation
         else if (currentRep.equals("region")) {
             compare1 = RegionEnum.NORTHEAST;
             compare2 = RegionEnum.SOUTHEAST;
             compare3 = RegionEnum.REST;
             compare4 = RegionEnum.OUTSIDE;
         }
+        // Initalizes based on "hobby" representation
         else {
             compare1 = HobbyEnum.READ;
             compare2 = HobbyEnum.ART;
@@ -153,6 +160,7 @@ public class GUIDisplayer {
                     / 2);
                 Shape pole = new Shape(x, y, POLE_WIDTH, BAR_HEIGHT * 4,
                     Color.BLACK);
+                // Adds to the window
                 window.addShape(pole);
                 poleShapes[songNumber] = pole;
 
@@ -229,24 +237,28 @@ public class GUIDisplayer {
 
 
     /**
-     * 
+     * Method to reinitialize the variables that
+     * represent the sorted display.
      */
     public void refresh() {
         Enum<?> compare1, compare2, compare3, compare4;
         songNumber = showNumber;
         Song currentSong = songs.get(songNumber);
+        // Recreates/refreshes the variables based on "major" representation
         if (currentRep.equals("major")) {
             compare1 = MajorEnum.CS;
             compare2 = MajorEnum.OTHER_ENGINEERING;
             compare3 = MajorEnum.MATH_OR_CMDA;
             compare4 = MajorEnum.OTHER;
         }
+        // Recreates/refreshes the variables based on "region" representation
         else if (currentRep.equals("region")) {
             compare1 = RegionEnum.NORTHEAST;
             compare2 = RegionEnum.SOUTHEAST;
             compare3 = RegionEnum.REST;
             compare4 = RegionEnum.OUTSIDE;
         }
+        // Recreates/refreshes the variables based on "hobby" representation
         else {
             compare1 = HobbyEnum.READ;
             compare2 = HobbyEnum.ART;
@@ -382,6 +394,7 @@ public class GUIDisplayer {
     public void hobbyButton(Button button) {
         currentRep = "hobby";
         showNumber = 0;
+        // Refreshes page with new representation
         refresh();
     }
 
@@ -395,6 +408,7 @@ public class GUIDisplayer {
     public void majorButton(Button button) {
         currentRep = "major";
         showNumber = 0;
+        // Refreshes page with new representation
         refresh();
     }
 
@@ -408,6 +422,7 @@ public class GUIDisplayer {
     public void regionButton(Button button) {
         currentRep = "region";
         showNumber = 0;
+        // Refreshes page with new representation
         refresh();
     }
 
@@ -421,6 +436,7 @@ public class GUIDisplayer {
     public void titleButton(Button button) {
         songs.sortTitle();
         showNumber = 0;
+        // Refreshes page with new representation
         refresh();
     }
 
@@ -434,6 +450,7 @@ public class GUIDisplayer {
     public void genreButton(Button button) {
         songs.sortGenre();
         showNumber = 0;
+        // Refreshes page with new representation
         refresh();
     }
 
@@ -447,6 +464,7 @@ public class GUIDisplayer {
     public void artistButton(Button button) {
         songs.sortArtist();
         showNumber = 0;
+        // Refreshes page with new representation
         refresh();
     }
 
@@ -460,6 +478,7 @@ public class GUIDisplayer {
     public void dateButton(Button button) {
         songs.sortDate();
         showNumber = 0;
+        // Refreshes page with new representation
         refresh();
     }
 
@@ -473,6 +492,7 @@ public class GUIDisplayer {
     public void nextButton(Button button) {
         if (showNumber + 9 < songs.getSize()) {
             showNumber += 9;
+            // Refreshes page with new representation
             refresh();
         }
     }
