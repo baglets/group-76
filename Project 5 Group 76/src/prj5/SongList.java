@@ -168,6 +168,7 @@ public class SongList {
         while (unsortedPiece != null) {
             Node<Song> nodeToInsert = unsortedPiece;
             unsortedPiece = unsortedPiece.getNext();
+            // Calls helper method to find where to insert the new piece
             insertInOrderArtist(nodeToInsert);
         }
     }
@@ -215,9 +216,14 @@ public class SongList {
         }
         firstNode.setNext(null);
 
+        /*
+         * Loops through the list until the unsorted portion
+         * of the linked list is empty
+         */
         while (unsortedPiece != null) {
             Node<Song> nodeToInsert = unsortedPiece;
             unsortedPiece = unsortedPiece.getNext();
+            // Calls helper method to find where to insert the new piece
             insertInOrderTitle(nodeToInsert);
         }
     }
@@ -265,9 +271,14 @@ public class SongList {
         }
         firstNode.setNext(null);
 
+        /*
+         * Loops through the list until the unsorted portion
+         * of the linked list is empty
+         */
         while (unsortedPiece != null) {
             Node<Song> nodeToInsert = unsortedPiece;
             unsortedPiece = unsortedPiece.getNext();
+            // Calls helper method to find where to insert the new piece
             insertInOrderGenre(nodeToInsert);
         }
     }
@@ -314,9 +325,14 @@ public class SongList {
         }
         firstNode.setNext(null);
 
+        /*
+         * Loops through the list until the unsorted portion
+         * of the linked list is empty
+         */
         while (unsortedPiece != null) {
             Node<Song> nodeToInsert = unsortedPiece;
             unsortedPiece = unsortedPiece.getNext();
+            // Calls helper method to find where to insert the new piece
             insertInOrderDate(nodeToInsert);
         }
     }
@@ -372,6 +388,7 @@ public class SongList {
         String heard;
         String liked;
         Node<Song> curr = firstNode;
+        // Loop to fill the array of inputs
         for (int i = 5; i < inputs.length && curr != null; i += 2) {
             heard = inputs[i];
             if (i + 1 < inputs.length) {
@@ -400,6 +417,7 @@ public class SongList {
 
         Song song = null;
 
+        // Loops through the list to retrieve a desired song
         while (curr != null && song == null) {
             if (count == num) {
                 song = curr.getData();
