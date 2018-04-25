@@ -42,19 +42,19 @@ public class GUISongDisplay {
      *            Shape for the fourth bar
      */
     public GUISongDisplay(Shape bar1, Shape bar2, Shape bar3, Shape bar4) {
-        
+
     }
 
 
- /**
- * This will set the information for the bar.
- *
- * @param bar
- * The bar shape to use
- */
- private void setBar1(Shape bar) {
-     
- }
+    /**
+     * This will set the information for the bar.
+     *
+     * @param bar
+     *            The bar shape to use
+     */
+    private void setBar1(Shape bar) {
+
+    }
 
 
     /**
