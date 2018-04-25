@@ -507,13 +507,12 @@ public class GUIDisplayer {
 
 
     /**
-     * This refreshes the legend based on the visual categories.
+     * This refreshes the legend based on the visual categories. Changes the texts only
      */
     public void refreshLegend() {
         // Refreshes the texts based on "major" representation
         if (currentRep.equals("major")) {
-            TextShape text = legendTexts[0];
-            text.setText("Comp Sci");
+            legendTexts[0].setText("Comp Sci");
             legendTexts[1].setText("Other Eng");
             legendTexts[2].setText("Math/CMDA");
             legendTexts[3].setText("Other");
