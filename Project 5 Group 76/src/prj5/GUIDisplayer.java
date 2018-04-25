@@ -252,10 +252,13 @@ public class GUIDisplayer {
         }
     }
 
-    
+
+    /**
+     * This initializes the legend's shapes and texts.
+     */
     public void initializeLegend() {
         // Legend initialization
-        
+
         // Texts
         // Header
         legendHeader = new TextShape(0, (window.getGraphPanelHeight()
@@ -356,6 +359,7 @@ public class GUIDisplayer {
         window.addShape(legendWhiteShape);
         window.addShape(legendBlackShape);
     }
+
 
     /**
      * Method to reinitialize the variables that
@@ -507,7 +511,8 @@ public class GUIDisplayer {
 
 
     /**
-     * This refreshes the legend based on the visual categories. Changes the texts only
+     * This refreshes the legend based on the visual categories. Changes the
+     * texts only
      */
     public void refreshLegend() {
         // Refreshes the texts based on "major" representation
