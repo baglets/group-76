@@ -51,17 +51,33 @@ public class GUIDisplayer {
     private Shape[] barShapes;
     private Shape[] poleShapes;
 
+    private TextShape legendHeader;
+    private TextShape legendTitle;
+    private TextShape legendHeard;
+    private TextShape legendLikes;
+    private Shape legendPole;
+    private Shape legendBlackShape;
+    private Shape legendWhiteShape;
+    private TextShape[] legendTexts;
+
     // Constants
     private static final float BAR_SIZE = 0.5f;
     private static final int BAR_HEIGHT = 8;
     private static final Color COLOR_BAR_1 = Color.magenta;
     private static final Color COLOR_BAR_2 = Color.BLUE;
-    private static final Color COLOR_BAR_3 = Color.YELLOW;
+    private static final Color COLOR_BAR_3 = new Color(239, 207, 1);
     private static final Color COLOR_BAR_4 = Color.GREEN;
     private static final int BAR_Y_INTERVAL = 85;
     private static final int POLE_WIDTH = 5;
     private static final int TEXT_SPACING = 18;
     private static final int ALIGN_LEFT = 50;
+
+    private static final int LEGEND_WIDTH = 110;
+    private static final int LEGEND_HEIGHT = 180;
+    private static final int LEGEND_OUTLINE_SIZE = 1;
+    private static final int LEGEND_FLOAT = 5;
+    private static final int LEGEND_TEXT_FLOAT = 8;
+    private static final int LEGEND_TEXT_SPACING = 20;
 
 
     /**
@@ -111,12 +127,13 @@ public class GUIDisplayer {
         showNumber = 0;
         currentRep = "hobby";
         songTexts = new TextShape[18];
+        legendTexts = new TextShape[4];
         barShapes = new Shape[36];
         poleShapes = new Shape[9];
-
         // Then initialize the SongList and call the appropriate methods
         songs = songList;
         initializeShapes();
+        initializeLegend();
 
     }
 
@@ -235,6 +252,110 @@ public class GUIDisplayer {
         }
     }
 
+    
+    public void initializeLegend() {
+        // Legend initialization
+        
+        // Texts
+        // Header
+        legendHeader = new TextShape(0, (window.getGraphPanelHeight()
+            - LEGEND_HEIGHT), "Hobby Legend");
+        int x = (window.getGraphPanelWidth() - LEGEND_WIDTH - LEGEND_FLOAT)
+            + (LEGEND_WIDTH / 2) - (legendHeader.getWidth() / 2);
+        legendHeader.setX(x);
+        legendHeader.setBackgroundColor(Color.WHITE);
+        window.addShape(legendHeader);
+
+        // Categories
+        // 1
+        legendTexts[0] = new TextShape(0, (window.getGraphPanelHeight()
+            - LEGEND_HEIGHT) + LEGEND_TEXT_SPACING, "Read", COLOR_BAR_1);
+        x = (window.getGraphPanelWidth() - LEGEND_WIDTH - LEGEND_FLOAT
+            + LEGEND_TEXT_FLOAT);
+        legendTexts[0].setX(x);
+        legendTexts[0].setBackgroundColor(Color.WHITE);
+        window.addShape(legendTexts[0]);
+
+        // 2
+        legendTexts[1] = new TextShape(0, (window.getGraphPanelHeight()
+            - LEGEND_HEIGHT) + (LEGEND_TEXT_SPACING * 2), "Art", COLOR_BAR_2);
+        x = (window.getGraphPanelWidth() - LEGEND_WIDTH - LEGEND_FLOAT
+            + LEGEND_TEXT_FLOAT);
+        legendTexts[1].setX(x);
+        legendTexts[1].setBackgroundColor(Color.WHITE);
+        window.addShape(legendTexts[1]);
+
+        // 3
+        legendTexts[2] = new TextShape(0, (window.getGraphPanelHeight()
+            - LEGEND_HEIGHT) + (LEGEND_TEXT_SPACING * 3), "Sports",
+            COLOR_BAR_3);
+        x = (window.getGraphPanelWidth() - LEGEND_WIDTH - LEGEND_FLOAT
+            + LEGEND_TEXT_FLOAT);
+        legendTexts[2].setX(x);
+        legendTexts[2].setBackgroundColor(Color.WHITE);
+        window.addShape(legendTexts[2]);
+
+        // 4
+        legendTexts[3] = new TextShape(0, (window.getGraphPanelHeight()
+            - LEGEND_HEIGHT) + (LEGEND_TEXT_SPACING * 4), "Music", COLOR_BAR_4);
+        x = (window.getGraphPanelWidth() - LEGEND_WIDTH - LEGEND_FLOAT
+            + LEGEND_TEXT_FLOAT);
+        legendTexts[3].setX(x);
+        legendTexts[3].setBackgroundColor(Color.WHITE);
+        window.addShape(legendTexts[3]);
+
+        // Title
+        legendTitle = new TextShape(0, (window.getGraphPanelHeight()
+            - LEGEND_HEIGHT) + (LEGEND_TEXT_SPACING * 5), "Song Title");
+        x = (window.getGraphPanelWidth() - LEGEND_WIDTH - LEGEND_FLOAT)
+            + (LEGEND_WIDTH / 2) - (legendTitle.getWidth() / 2);
+        legendTitle.setX(x);
+        legendTitle.setBackgroundColor(Color.WHITE);
+        window.addShape(legendTitle);
+
+        // Pole
+        legendPole = new Shape(0, (window.getGraphPanelHeight() - LEGEND_HEIGHT)
+            + (LEGEND_TEXT_SPACING * 6), POLE_WIDTH, BAR_HEIGHT * 6,
+            Color.BLACK);
+        x = (window.getGraphPanelWidth() - LEGEND_WIDTH - LEGEND_FLOAT)
+            + (LEGEND_WIDTH / 2) - (POLE_WIDTH / 2);
+        legendPole.setX(x);
+        window.addShape(legendPole);
+
+        // Heard/Likes
+
+        // Heard
+        legendHeard = new TextShape(0, 0, "Heard");
+        x = legendPole.getX() - legendHeard.getWidth() - LEGEND_TEXT_FLOAT;
+        int y = (legendPole.getY()) + (legendPole.getHeight() / 2)
+            - (legendHeard.getHeight() / 2);
+        legendHeard.setX(x);
+        legendHeard.setY(y);
+        legendHeard.setBackgroundColor(Color.WHITE);
+        window.addShape(legendHeard);
+
+        // Likes
+        legendLikes = new TextShape(0, 0, "Likes");
+        x = legendPole.getX() + LEGEND_TEXT_FLOAT;
+        legendLikes.setX(x);
+        legendLikes.setY(y);
+        legendLikes.setBackgroundColor(Color.WHITE);
+        window.addShape(legendLikes);
+
+        // Shapes
+        legendBlackShape = new Shape((window.getGraphPanelWidth()
+            - LEGEND_WIDTH) - LEGEND_FLOAT, (window.getGraphPanelHeight()
+                - LEGEND_HEIGHT) - LEGEND_FLOAT, LEGEND_WIDTH, (LEGEND_HEIGHT),
+            Color.BLACK);
+        legendWhiteShape = new Shape((window.getGraphPanelWidth()
+            - LEGEND_WIDTH) - LEGEND_FLOAT + LEGEND_OUTLINE_SIZE, (window
+                .getGraphPanelHeight() - LEGEND_HEIGHT) - LEGEND_FLOAT
+                + LEGEND_OUTLINE_SIZE, LEGEND_WIDTH - (LEGEND_OUTLINE_SIZE * 2),
+            (LEGEND_HEIGHT) - (LEGEND_OUTLINE_SIZE * 2), Color.WHITE);
+
+        window.addShape(legendWhiteShape);
+        window.addShape(legendBlackShape);
+    }
 
     /**
      * Method to reinitialize the variables that
@@ -386,6 +507,35 @@ public class GUIDisplayer {
 
 
     /**
+     * This refreshes the legend based on the visual categories.
+     */
+    public void refreshLegend() {
+        // Refreshes the texts based on "major" representation
+        if (currentRep.equals("major")) {
+            TextShape text = legendTexts[0];
+            text.setText("Comp Sci");
+            legendTexts[1].setText("Other Eng");
+            legendTexts[2].setText("Math/CMDA");
+            legendTexts[3].setText("Other");
+        }
+        // Refreshes the texts based on "region" representation
+        else if (currentRep.equals("region")) {
+            legendTexts[0].setText("Northeast");
+            legendTexts[1].setText("Southeast");
+            legendTexts[2].setText("Rest of US");
+            legendTexts[3].setText("Outside US");
+        }
+        // Refreshes the texts based on "hobby" representation
+        else {
+            legendTexts[0].setText("Read");
+            legendTexts[1].setText("Art");
+            legendTexts[2].setText("Sports");
+            legendTexts[3].setText("Music");
+        }
+    }
+
+
+    /**
      * This fires when the hobby button is clicked.
      * 
      * @param button
@@ -396,6 +546,7 @@ public class GUIDisplayer {
         showNumber = 0;
         // Refreshes page with new representation
         refresh();
+        refreshLegend();
     }
 
 
@@ -410,6 +561,7 @@ public class GUIDisplayer {
         showNumber = 0;
         // Refreshes page with new representation
         refresh();
+        refreshLegend();
     }
 
 
@@ -424,6 +576,7 @@ public class GUIDisplayer {
         showNumber = 0;
         // Refreshes page with new representation
         refresh();
+        refreshLegend();
     }
 
 
