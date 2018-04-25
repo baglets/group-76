@@ -88,7 +88,7 @@ public class Response {
     /**
      * This gets whether the song is heard or not.
      * 
-     * @return true if heard and false if not
+     * @return "true" if heard and "false" if not
      */
     public String getHeard() {
         return heard;
@@ -98,7 +98,7 @@ public class Response {
     /**
      * This gets whether the song is liked or not.
      * 
-     * @return true if liked and false if not
+     * @return "true" if liked and "false" if not
      */
     public String getLiked() {
         return liked;
