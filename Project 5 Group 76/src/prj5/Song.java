@@ -12,10 +12,11 @@ package prj5;
 
 /**
  * This class represents one of the songs from the file. It will have an array
- * of responses from each student that responded to the survey.
+ * of responses from each student that responded to the survey, as well as a
+ * name, year, artist, and genre.
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.08
+ * @version 2018.04.25
  */
 
 public class Song {

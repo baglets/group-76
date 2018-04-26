@@ -15,10 +15,12 @@ import java.io.FileNotFoundException;
 import junit.framework.TestCase;
 
 /**
- * This class tests the DataReader class.
+ * This class tests the DataReader class. It just makes sure the SongList fills
+ * up with songs. It uses the MusicSurveyData.csv and the SongList.csv files for
+ * testing.
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.08
+ * @version 2018.04.25
  */
 
 public class DataReaderTest extends TestCase {

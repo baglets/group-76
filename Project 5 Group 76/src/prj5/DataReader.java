@@ -19,7 +19,7 @@ import java.util.Scanner;
  * list and the responses into arrays within each song.
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.08
+ * @version 2018.04.25
  */
 
 public class DataReader {
@@ -96,11 +96,12 @@ public class DataReader {
             year = Integer.parseInt(input[2]);
             genre = input[3];
 
+            // Create a new song
             Song song = new Song(name, year, artist, genre);
 
+            // Add it to the song list
             songList.add(song);
         }
-
         scanner.close();
 
         return songList;
@@ -108,7 +109,7 @@ public class DataReader {
 
 
     /**
-     * This reads the students' resposnes and adds them to their respective
+     * This reads the students' responses and adds them to their respective
      * songs.
      * 
      * @param fileName
@@ -206,6 +207,8 @@ public class DataReader {
                     skipSong = true;
                     break;
             }
+            
+            // If the line had no irregularities
             if (skipSong == false) {
                 songs.addResponses(hobby, major, region, input);
             }

@@ -62,7 +62,7 @@ public class SongTest extends TestCase {
 
 
     /**
-     * This tests getting the heard for hobby
+     * This tests getting the heard for hobby.
      */
     public void testgetHeard1() {
         assertEquals(60, song.getHeard(HobbyEnum.ART));
@@ -71,7 +71,7 @@ public class SongTest extends TestCase {
 
 
     /**
-     * This tests getting the heard for major
+     * This tests getting the heard for major.
      */
     public void testgetHeard2() {
         assertEquals(60, song.getHeard(MajorEnum.CS));
@@ -80,7 +80,7 @@ public class SongTest extends TestCase {
 
 
     /**
-     * This tests getting the heard for region
+     * This tests getting the heard for region.
      */
     public void testgetHeard3() {
         assertEquals(60, song.getHeard(RegionEnum.NORTHEAST));
@@ -89,7 +89,7 @@ public class SongTest extends TestCase {
 
 
     /**
-     * This tests getting the heard for hobby
+     * This tests getting the likes for hobby.
      */
     public void testgetLiked1() {
         assertEquals(60, song.getLiked(HobbyEnum.ART));
@@ -98,7 +98,7 @@ public class SongTest extends TestCase {
 
 
     /**
-     * This tests getting the heard for major
+     * This tests getting the likes for major.
      */
     public void testgetLiked2() {
         assertEquals(60, song.getLiked(MajorEnum.CS));
@@ -107,7 +107,7 @@ public class SongTest extends TestCase {
 
 
     /**
-     * This tests getting the heard for region
+     * This tests getting the likes for region.
      */
     public void testgetLiked3() {
         assertEquals(60, song.getLiked(RegionEnum.NORTHEAST));
@@ -116,7 +116,7 @@ public class SongTest extends TestCase {
 
 
     /**
-     * This tests getting the heard for region
+     * This tests getting the heard for region.
      */
     public void testOther() {
         song.addResponse(new Response(HobbyEnum.ART, MajorEnum.CS,

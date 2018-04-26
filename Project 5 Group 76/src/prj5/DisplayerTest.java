@@ -12,10 +12,11 @@ import java.io.FileNotFoundException;
 import junit.framework.TestCase;
 
 /**
- * This class tests the Displayer class.
+ * This class tests the Displayer class. It only tests one of the methods to
+ * ensure it works.
  *
  * @author <Samuel Tyson> <samuelmt>
- * @version 2018.04.09
+ * @version 2018.04.25
  */
 
 public class DisplayerTest extends TestCase {
@@ -45,7 +46,7 @@ public class DisplayerTest extends TestCase {
 
 
     /**
-     * This tests the representHobby
+     * This tests the representHobby method.
      */
     public void testRepresentHobby() {
         display.refresh();
